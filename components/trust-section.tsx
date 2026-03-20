@@ -1,28 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, Crosshair, Wrench, Zap } from "lucide-react";
+import { Layers, ShieldOff, FileCode, Zap } from "lucide-react";
 
 const blocks = [
   {
-    icon: <Brain className="w-5 h-5 text-amber-500" />,
-    title: "Deep LLM Knowledge",
-    description: "We do not just run automated scans. Our team understands transformer architectures, RAG systems, agentic workflows, and the unique attack surfaces they create.",
+    icon: <Layers className="w-5 h-5 text-amber-500" />,
+    title: "Framework Agnostic",
+    description: "Wyatt works with any agent stack. LangChain, CrewAI, custom agents, MCP. No rewrites required.",
   },
   {
-    icon: <Crosshair className="w-5 h-5 text-amber-500" />,
-    title: "Real-World Attack Simulation",
-    description: "We think like attackers. Every test is manual, creative, and designed to find what automated tools miss. We have seen how AI systems break and we know how to prevent it.",
+    icon: <ShieldOff className="w-5 h-5 text-amber-500" />,
+    title: "Deny by Default",
+    description: "Nothing executes without explicit policy permission. Not configurable. It is the architecture.",
   },
   {
-    icon: <Wrench className="w-5 h-5 text-amber-500" />,
-    title: "Actionable Remediation",
-    description: "We do not just point out problems. Every finding includes detailed fix guidance, code examples, and architectural recommendations your team can implement immediately.",
+    icon: <FileCode className="w-5 h-5 text-amber-500" />,
+    title: "Built on the AFB Taxonomy",
+    description: "The only enforcement product built from a first-principles security model of how agents actually fail — not a checklist.",
   },
   {
     icon: <Zap className="w-5 h-5 text-amber-500" />,
-    title: "Fast Turnaround",
-    description: "2-week engagements mean you get answers fast. No 3-month contracts or endless scoping. We move at startup speed.",
+    title: "Set and Forget",
+    description: "Once deployed, Wyatt runs silently. No dashboards to check. No alerts to triage. Just enforcement, always on.",
   },
 ];
 
@@ -56,7 +56,7 @@ export function TrustSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"Specialized Expertise in AI Security".split(" ").map((word, i) => (
+            {"Why Wyatt".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}

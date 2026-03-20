@@ -20,25 +20,25 @@ interface Feature {
 const features: Feature[] = [
   {
     id: 1,
-    title: "1. Discover",
+    title: "1. Agent Calls Tool",
     description:
-      "Deep-dive into your AI architecture, identifying attack surfaces, reviewing system prompts, RAG setup, and agent configurations.",
+      "Your agent attempts to execute a tool call — file access, API request, database query, or any other operation.",
     icon: <Search className="w-5 h-5" />,
     visual: <DiscoverVisual />,
   },
   {
     id: 2,
-    title: "2. Test and Red-Team",
+    title: "2. Wyatt Intercepts",
     description:
-      "Manual red-teaming by AI security specialists combined with automated vulnerability scanning and real-world attack simulation.",
+      "Before execution, Wyatt intercepts the call and evaluates it against your defined policy. Every action. Every time.",
     icon: <ShieldCheck className="w-5 h-5" />,
     visual: <RedteamVisual />,
   },
   {
     id: 3,
-    title: "3. Report and Remediate",
+    title: "3. Allow or Deny",
     description:
-      "Severity-rated vulnerability report with proof-of-concept demonstrations, step-by-step remediation guidance, and a live walkthrough with your team.",
+      "Wyatt enforces the policy decision. Authorized actions proceed. Unauthorized actions stop. Everything is logged.",
     icon: <FileText className="w-5 h-5" />,
     visual: <ReportVisual />,
   },
@@ -66,7 +66,7 @@ export function SolutionSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal leading-[1.1] tracking-tight text-white">
-            {"Comprehensive AI Security Audits".split(" ").map((word, i) => (
+            {"Runtime Enforcement for AI Agents".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -80,7 +80,7 @@ export function SolutionSection() {
             ))}
           </h2>
           <p className="text-balance text-slate-400 text-base leading-relaxed">
-            We red-team your AI features the way real attackers would, then show you exactly how to fix what we find. Built for modern LLM implementations.
+            Wyatt is infrastructure. It installs alongside any agent, intercepts every tool call, enforces policy, and logs every decision. Set it up and forget it exists.
           </p>
         </div>
 
@@ -185,7 +185,7 @@ export function SolutionSection() {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-amber-500 text-slate-950 font-medium flex items-center gap-2 hover:bg-amber-400 transition-colors"
           >
-            See Our Full Testing Methodology
+            Get Early Access to Wyatt
             <ChevronRight className="w-4 h-4" />
           </motion.button>
         </div>

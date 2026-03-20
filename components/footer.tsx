@@ -18,7 +18,7 @@ export function Footer() {
                 style={{ height: "76px", width: "auto" }}
               />
             </Link>
-            <p className="text-sm text-slate-500">AI Security for Modern SaaS</p>
+            <p className="text-sm text-slate-500">Runtime Enforcement for AI Agents</p>
           </div>
 
           {/* Links */}

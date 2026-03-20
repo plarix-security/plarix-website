@@ -1,26 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileBarChart, Code2, Map, Video } from "lucide-react";
+import { FileBarChart, Bell, FileText, Layers } from "lucide-react";
 
 const deliverables = [
   {
     icon: <FileBarChart className="w-6 h-6 text-amber-500" />,
-    title: "Executive Summary",
-    description: "Clear, non-technical overview of findings and risk assessment. Perfect for board presentations and stakeholder communication.",
-    items: ["Overall security posture", "Critical findings overview", "Business impact analysis", "Recommended priorities"],
+    title: "Complete Audit Logs",
+    description: "Every agent decision, timestamped and structured. Full visibility into what your agents are doing.",
+    items: ["Every tool call logged", "Timestamped decision records", "Structured for analysis", "Exportable audit trails"],
   },
   {
-    icon: <Code2 className="w-6 h-6 text-amber-500" />,
-    title: "Technical Security Report",
-    description: "Deep technical documentation for your engineering team.",
-    items: ["Detailed vulnerability descriptions", "Severity ratings (Critical, High, Medium, Low)", "Step-by-step reproduction guides", "Code-level remediation examples"],
+    icon: <Bell className="w-6 h-6 text-amber-500" />,
+    title: "Real-Time Alerts",
+    description: "Know immediately when policy violations occur. No surprises.",
+    items: ["Instant violation notifications", "Configurable alert thresholds", "Integration with your stack", "Clear violation context"],
   },
   {
-    icon: <Map className="w-6 h-6 text-amber-500" />,
-    title: "Remediation Roadmap",
-    description: "Prioritized action plan to fix vulnerabilities efficiently.",
-    items: ["Quick wins vs. long-term fixes", "Implementation timelines", "Security best practices", "Future-proofing guidance"],
+    icon: <FileText className="w-6 h-6 text-amber-500" />,
+    title: "AFB Exposure Reports",
+    description: "Automated reports classifying your exposure by Agent Failure Boundary type.",
+    items: ["Generated automatically", "Classified by AFB type", "Actionable insights", "Track improvement over time"],
   },
 ];
 
@@ -50,11 +50,11 @@ export function DeliverablesSection() {
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
             <div className="w-2.5 h-2.5 bg-amber-500" />
             <span className="text-sm font-medium text-slate-500 tracking-wide">
-              Deliverables
+              What You Get
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"What You Receive".split(" ").map((word, i) => (
+            {"What Wyatt Gives You".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -111,11 +111,11 @@ export function DeliverablesSection() {
           className="mt-6 flex items-center gap-4 p-6 border border-slate-800/30 bg-slate-900/20"
         >
           <div className="w-10 h-10 flex items-center justify-center bg-amber-500/10 border border-amber-500/20 shrink-0">
-            <Video className="w-5 h-5 text-amber-500" />
+            <Layers className="w-5 h-5 text-amber-500" />
           </div>
           <div>
-            <h4 className="text-white font-medium">30-Minute Walkthrough Call</h4>
-            <p className="text-sm text-slate-400">Live session with your team to explain findings, answer questions, and provide implementation guidance.</p>
+            <h4 className="text-white font-medium">Framework-Agnostic</h4>
+            <p className="text-sm text-slate-400">Works with any agent stack. LangChain, CrewAI, custom agents, MCP. No rewrites required.</p>
           </div>
         </motion.div>
       </div>

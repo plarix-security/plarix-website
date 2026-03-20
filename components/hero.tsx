@@ -127,7 +127,7 @@ export function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 flex h-full flex-col justify-center items-center px-6 pt-14 text-center">
         <h1 className="max-w-4xl text-balance text-5xl font-normal tracking-tight text-white md:text-6xl lg:text-7xl">
-          {"Your AI Agent Is Live. Is It Secure?".split(" ").map((word, i) => (
+          {"Your Agent Is Live. Nothing Is Enforcing It.".split(" ").map((word, i) => (
             <motion.span
               key={`hero-word-${word}-${i}`}
               initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -142,9 +142,8 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-balance text-center text-sm leading-relaxed text-white/50 md:text-base">
-          We find critical vulnerabilities in customer-facing AI implementations
-          before they become breaches. Specialized security audits for B2B SaaS
-          companies shipping LLM-powered features.
+          Wyatt is the enforcement layer. A policy daemon that intercepts every
+          tool call before it executes. Deny by default. Always.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
@@ -153,23 +152,23 @@ export function Hero() {
             className="bg-amber-500 px-6 text-slate-950 hover:bg-amber-400 font-medium"
             onClick={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
           >
-            Get a Free Security Assessment
+            Get Early Access
           </Button>
           <Button
             variant="outline"
             size="lg"
             className="border-white/15 bg-transparent px-6 text-white hover:bg-white/5 hover:text-white"
             onClick={() => {
-              const el = document.querySelector("#features")
+              const el = document.querySelector("#solution")
               if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
             }}
           >
-            See What We Test For
+            See How It Works
           </Button>
         </div>
 
         <p className="mt-12 text-xs text-white/30 tracking-wide uppercase">
-          Specialized AI security for B2B SaaS companies
+          Runtime Enforcement for AI Agents
         </p>
       </div>
     </section>

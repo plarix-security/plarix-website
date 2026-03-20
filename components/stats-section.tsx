@@ -6,7 +6,7 @@ const stats = [
   { value: "Zero", label: "frameworks", context: "No runtime enforcement exists in any major agent framework today" },
   { value: "100%", label: "suggestions", context: "System prompts are suggestions, not policies. They can be ignored." },
   { value: "One", label: "tool call", context: "One unauthorized action can delete data, send emails, or exfiltrate secrets" },
-  { value: "AFB", label: "taxonomy", context: "Four failure boundaries define how agent systems actually break" },
+  { value: "AFB", label: "taxonomy", context: "Agent Failure Boundaries: four categories define how agent systems actually break" },
 ];
 
 const containerVariants = {

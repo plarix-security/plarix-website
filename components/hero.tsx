@@ -127,7 +127,7 @@ export function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 flex h-full flex-col justify-center items-center px-6 pt-14 text-center">
         <h1 className="max-w-4xl text-balance text-5xl font-normal tracking-tight text-white md:text-6xl lg:text-7xl">
-          {"Your Agent Is Live. Nothing Is Enforcing It.".split(" ").map((word, i) => (
+          {"You Defined the Tools. Did You Define the Limits?".split(" ").map((word, i) => (
             <motion.span
               key={`hero-word-${word}-${i}`}
               initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -142,7 +142,7 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-balance text-center text-sm leading-relaxed text-white/50 md:text-base">
-          Wyatt is the enforcement layer. A policy daemon that intercepts every
+          Wyatt is the enforcement layer. A runtime daemon that intercepts every
           tool call before it executes. Deny by default. Always.
         </p>
 

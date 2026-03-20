@@ -54,7 +54,7 @@ export function WhoWeServeSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white max-w-2xl">
-            {"Wyatt Runs in Your Stack".split(" ").map((word, i) => (
+            {"Built for Teams Who Ship Agents and Mean It".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -103,10 +103,6 @@ export function WhoWeServeSection() {
             </motion.div>
           ))}
         </motion.div>
-
-        <p className="mt-12 text-center text-slate-500 text-sm">
-          Shipping AI agents? Wyatt ensures they only do what you authorize.
-        </p>
       </div>
     </section>
   );

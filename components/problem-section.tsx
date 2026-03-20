@@ -99,10 +99,6 @@ export function ProblemSection() {
             </motion.div>
           ))}
         </motion.div>
-
-        <p className="mt-12 text-center text-slate-500 text-sm">
-          A system prompt is not a policy. It is a suggestion. You need actual enforcement.
-        </p>
       </div>
     </section>
   );

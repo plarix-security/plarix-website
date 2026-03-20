@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileBarChart, Bell, FileText, Layers } from "lucide-react";
+import { FileBarChart, Bell, FileText } from "lucide-react";
 
 const deliverables = [
   {
@@ -20,7 +20,7 @@ const deliverables = [
     icon: <FileText className="w-6 h-6 text-amber-500" />,
     title: "AFB Exposure Reports",
     description: "Automated reports classifying your exposure by Agent Failure Boundary type.",
-    items: ["Generated automatically", "Classified by AFB type", "Actionable insights", "Track improvement over time"],
+    items: ["Generated automatically", "Classified by AFB type", "Prioritized remediation steps", "Track improvement over time"],
   },
 ];
 
@@ -100,23 +100,6 @@ export function DeliverablesSection() {
               </ul>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Bonus */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-6 flex items-center gap-4 p-6 border border-slate-800/30 bg-slate-900/20"
-        >
-          <div className="w-10 h-10 flex items-center justify-center bg-amber-500/10 border border-amber-500/20 shrink-0">
-            <Layers className="w-5 h-5 text-amber-500" />
-          </div>
-          <div>
-            <h4 className="text-white font-medium">Framework-Agnostic</h4>
-            <p className="text-sm text-slate-400">Works with any agent stack. LangChain, CrewAI, custom agents, MCP. No rewrites required.</p>
-          </div>
         </motion.div>
       </div>
     </section>

@@ -7,20 +7,20 @@ const audiences = [
   {
     icon: <Landmark className="w-6 h-6 text-amber-500" />,
     title: "FinTech and Financial Services",
-    description: "Your AI handles sensitive financial data and regulatory compliance is critical. We ensure your AI agents meet security standards and do not leak customer information.",
-    concerns: ["GDPR compliance", "SOC2 certification", "PCI-DSS compliance", "Financial data protection"],
+    description: "Agents handling financial operations need more than a system prompt. Wyatt enforces what your agents can and cannot touch.",
+    concerns: ["Transaction boundaries", "Data access controls", "Audit compliance", "Authorized operations only"],
   },
   {
     icon: <HeartPulse className="w-6 h-6 text-amber-500" />,
     title: "HealthTech and Healthcare SaaS",
-    description: "Patient data and HIPAA compliance cannot be compromised. We test your AI implementations for healthcare-specific security risks and regulatory requirements.",
-    concerns: ["HIPAA compliance", "PHI protection", "Medical data leakage", "Regulatory requirements"],
+    description: "Patient data cannot be exposed through an unauthorized tool call. Wyatt enforces access boundaries at runtime.",
+    concerns: ["PHI protection", "Access enforcement", "Audit trails", "Runtime boundaries"],
   },
   {
     icon: <Building2 className="w-6 h-6 text-amber-500" />,
     title: "B2B SaaS and Enterprise Tools",
-    description: "Your customers trust you with their business data. We make sure your AI features do not become a liability or PR nightmare.",
-    concerns: ["Multi-tenant isolation", "Enterprise security", "Customer trust", "Data sovereignty"],
+    description: "Your customers trust you with their data. Wyatt makes sure your agents honor that trust on every single action.",
+    concerns: ["Multi-tenant isolation", "Customer data protection", "Action enforcement", "Every call logged"],
   },
 ];
 
@@ -54,7 +54,7 @@ export function WhoWeServeSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white max-w-2xl">
-            {"Built for B2B SaaS Companies Shipping AI".split(" ").map((word, i) => (
+            {"Wyatt Runs in Your Stack".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -68,7 +68,7 @@ export function WhoWeServeSection() {
             ))}
           </h2>
           <p className="text-slate-400 text-base leading-relaxed max-w-lg">
-            Whether you just launched your first AI feature or you are scaling AI across your product, we secure what you have built.
+            No matter your industry, if your AI agents have access to tools and data, Wyatt enforces what they are permitted to do.
           </p>
         </div>
 
@@ -105,7 +105,7 @@ export function WhoWeServeSection() {
         </motion.div>
 
         <p className="mt-12 text-center text-slate-500 text-sm">
-          Recently funded? Just shipped AI features? We help you secure before scaling.
+          Shipping AI agents? Wyatt ensures they only do what you authorize.
         </p>
       </div>
     </section>

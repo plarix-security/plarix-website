@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "73%", label: "of companies", context: "Have deployed LLMs without security testing" },
-  { value: "12 min", label: "average time", context: "To jailbreak an unprotected AI agent" },
-  { value: "Top 10", label: "OWASP", context: "New vulnerabilities specific to LLM applications" },
-  { value: "Zero", label: "coverage", context: "Traditional security tools miss AI-specific attacks" },
+  { value: "Zero", label: "frameworks", context: "No runtime enforcement exists in any major agent framework today" },
+  { value: "100%", label: "suggestions", context: "System prompts are suggestions, not policies. They can be ignored." },
+  { value: "One", label: "tool call", context: "One unauthorized action can delete data, send emails, or exfiltrate secrets" },
+  { value: "AFB", label: "taxonomy", context: "Four failure boundaries define how agent systems actually break" },
 ];
 
 const containerVariants = {
@@ -38,7 +38,7 @@ export function StatsSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"The AI Security Gap Is Real".split(" ").map((word, i) => (
+            {"The Enforcement Gap Is Real".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -80,7 +80,7 @@ export function StatsSection() {
         </motion.div>
 
         <p className="mt-12 text-center text-slate-400 text-base max-w-2xl mx-auto">
-          Your firewall cannot stop prompt injection. Your WAF cannot detect jailbreaks. You need specialized AI security testing.
+          Your firewall cannot stop unauthorized tool calls. Your WAF cannot detect instruction hijacking. You need Wyatt.
         </p>
       </div>
     </section>

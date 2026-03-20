@@ -2,7 +2,7 @@
 
 import React from "react"
 import { motion } from "framer-motion";
-import { ShieldAlert, Database, Bot, FileOutput, Lock, Cpu } from "lucide-react";
+import { ShieldAlert, Database, Bot, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FeatureItem {
@@ -17,44 +17,30 @@ const DEFAULT_FEATURES: FeatureItem[] = [
   {
     id: "1",
     icon: <ShieldAlert className="w-5 h-5 text-white" />,
-    title: "Prompt Injection Vulnerabilities",
-    description: "Comprehensive testing against all injection attack vectors.",
-    items: ["Direct and indirect injection attacks", "System prompt extraction", "Instruction override attempts", "Multi-turn attack chains"],
+    title: "Policy Enforcement",
+    description: "Wyatt intercepts every tool call and enforces exactly what each agent is permitted to do. Not a suggestion. Actual enforcement.",
+    items: ["Intercepts every tool call before execution", "Evaluates against your defined policy", "Denies unauthorized actions automatically", "Logs every decision for audit"],
   },
   {
     id: "2",
     icon: <Database className="w-5 h-5 text-white" />,
-    title: "RAG Security Assessment",
-    description: "Protect your retrieval-augmented generation systems.",
-    items: ["Document retrieval manipulation", "Data leakage via context stuffing", "Access control bypasses", "Poisoned document detection"],
+    title: "Context Protection",
+    description: "Wyatt monitors what enters your agent's context and flags poisoned inputs before they corrupt behavior.",
+    items: ["Monitors context window inputs", "Detects poisoned or malicious data", "Flags suspicious context changes", "Prevents silent behavior corruption"],
   },
   {
     id: "3",
     icon: <Bot className="w-5 h-5 text-white" />,
-    title: "Agentic AI Security",
-    description: "Secure your autonomous AI agents and tool integrations.",
-    items: ["Unauthorized tool and API usage", "Privilege escalation paths", "Runaway automation risks", "Data exfiltration via functions"],
+    title: "Instruction Integrity",
+    description: "Wyatt validates that model output stays within authorized intent before the agent acts on it.",
+    items: ["Validates model output instructions", "Checks authorized intent boundaries", "Blocks hijacked action sequences", "Prevents instruction injection attacks"],
   },
   {
     id: "4",
-    icon: <FileOutput className="w-5 h-5 text-white" />,
-    title: "Output Security Testing",
-    description: "Ensure your AI outputs are safe and controlled.",
-    items: ["Sensitive information disclosure", "Toxic and harmful content generation", "Hallucination-based vulnerabilities", "Input validation weaknesses"],
-  },
-  {
-    id: "5",
-    icon: <Lock className="w-5 h-5 text-white" />,
-    title: "Authentication and Access Control",
-    description: "Verify user isolation and authorization boundaries.",
-    items: ["User isolation failures", "Multi-tenant data leakage", "Session manipulation", "Authorization bypasses"],
-  },
-  {
-    id: "6",
-    icon: <Cpu className="w-5 h-5 text-white" />,
-    title: "Model Security",
-    description: "Protect the model itself from extraction and abuse.",
-    items: ["Model denial of service", "Training data extraction attempts", "Model theft vulnerabilities", "Supply chain security review"],
+    icon: <Github className="w-5 h-5 text-white" />,
+    title: "AFB Scanner — Free",
+    description: "A GitHub App that scans your agent codebase on every PR and reports AFB exposures before they reach production. Free. Always.",
+    items: ["Scans on every pull request", "Reports exposures by AFB type", "Catches issues before production", "Zero cost entry point"],
   },
 ];
 
@@ -100,11 +86,11 @@ export function FeaturesSection({ className }: FeaturesSectionProps) {
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
             <div className="w-2.5 h-2.5 bg-amber-500" />
             <span className="text-sm font-medium text-slate-500 tracking-wide">
-              What We Test
+              Capabilities
             </span>
           </div>
           <h2 className="text-balance text-white text-4xl md:text-5xl lg:text-5xl font-normal leading-[1.1] max-w-[700px] tracking-tight">
-            {"Comprehensive Security Coverage".split(" ").map((word, i) => (
+            {"What Wyatt Protects Against".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -125,7 +111,7 @@ export function FeaturesSection({ className }: FeaturesSectionProps) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {DEFAULT_FEATURES.map((feature) => (
             <motion.div

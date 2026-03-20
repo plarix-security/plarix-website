@@ -40,7 +40,7 @@ export function CtaSection() {
           />
 
           <h2 className="text-balance text-4xl font-normal tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-            {"Do Not Wait for a Security Incident".split(" ").map((word, i) => (
+            {"Your Agents Are Running Right Now".split(" ").map((word, i) => (
               <motion.span
                 key={`cta-${i}`}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -55,9 +55,7 @@ export function CtaSection() {
           </h2>
 
           <p className="text-balance max-w-xl text-base leading-relaxed text-slate-500 md:text-lg">
-            Every day your AI is in production without security testing is a day
-            of risk. Get a comprehensive audit before attackers find what we
-            would have caught.
+            Nothing is enforcing what they can do. Wyatt changes that.
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
@@ -66,23 +64,18 @@ export function CtaSection() {
               className="bg-slate-950 px-8 text-white hover:bg-slate-800 font-medium"
               onClick={() => setFormOpen(true)}
             >
-              Schedule a Free Consultation
+              Get Early Access to Wyatt
             </Button>
             <span className="text-sm text-slate-400">
-              Or email us at{" "}
+              Or start free with the{" "}
               <a
-                href="mailto:security@plarix.dev"
+                href="https://github.com/apps/afb-scanner"
                 className="underline underline-offset-2 hover:text-slate-600 transition-colors"
               >
-                security@plarix.dev
+                AFB Scanner
               </a>
             </span>
           </div>
-
-          <p className="text-xs text-slate-400">
-            No sales pressure. Just honest conversation about your AI security
-            needs.
-          </p>
         </div>
       </div>
 
@@ -144,7 +137,7 @@ export function CtaSection() {
                         className="w-10 h-10 object-contain invert brightness-200"
                       />
                       <h3 className="text-white text-lg font-medium">
-                        Schedule a Consultation
+                        Get Early Access
                       </h3>
                     </div>
 

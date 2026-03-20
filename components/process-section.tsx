@@ -1,51 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Shield, FileText, HeadphonesIcon } from "lucide-react";
+import { Download, FileCode, Zap } from "lucide-react";
 
 const steps = [
   {
-    icon: <Search className="w-5 h-5" />,
-    title: "Discovery and Planning",
-    timeline: "Days 1 to 2",
+    icon: <Download className="w-5 h-5" />,
+    title: "Install",
+    timeline: "One integration",
     items: [
-      "Deep-dive into your AI architecture",
-      "Identify attack surfaces and critical flows",
-      "Review system prompts, RAG setup, and agent configurations",
-      "Establish testing scope and boundaries",
+      "Wyatt runs alongside your existing agent",
+      "No framework changes required",
+      "No rewrites needed",
+      "One integration point",
     ],
   },
   {
-    icon: <Shield className="w-5 h-5" />,
-    title: "Security Testing",
-    timeline: "Days 3 to 10",
+    icon: <FileCode className="w-5 h-5" />,
+    title: "Define Policy",
+    timeline: "Simple declarations",
     items: [
-      "Manual red-teaming by AI security specialists",
-      "Automated vulnerability scanning with custom tools",
-      "Real-world attack simulation",
-      "Comprehensive documentation of all findings",
+      "Declare what each agent is permitted to do",
+      "Specify allowed tools and resources",
+      "Define permitted operations",
+      "Wyatt enforces from the first run",
     ],
   },
   {
-    icon: <FileText className="w-5 h-5" />,
-    title: "Reporting and Remediation",
-    timeline: "Days 11 to 14",
+    icon: <Zap className="w-5 h-5" />,
+    title: "Run and Forget",
+    timeline: "Always on",
     items: [
-      "Severity-rated vulnerability report",
-      "Proof-of-concept demonstrations",
-      "Step-by-step remediation guidance",
-      "Executive summary for leadership",
-    ],
-  },
-  {
-    icon: <HeadphonesIcon className="w-5 h-5" />,
-    title: "Follow-Up",
-    timeline: "Post-delivery",
-    items: [
-      "Validation of fixes (optional)",
-      "Ongoing security guidance",
-      "Priority support for new AI features",
-      "Quarterly re-audit recommendations",
+      "Every tool call intercepted automatically",
+      "Every action evaluated against policy",
+      "Every decision logged",
+      "You do not manage Wyatt. Wyatt manages your agents.",
     ],
   },
 ];
@@ -80,7 +69,7 @@ export function ProcessSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white max-w-xl">
-            {"A 2-Week Engagement That Delivers Results".split(" ").map((word, i) => (
+            {"Get Started in Three Steps".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -94,7 +83,7 @@ export function ProcessSection() {
             ))}
           </h2>
           <p className="text-slate-400 text-base leading-relaxed max-w-lg">
-            A comprehensive engagement that finds vulnerabilities fast and delivers actionable remediation.
+            Wyatt integrates with your existing stack. No rewrites. No framework changes. Just enforcement.
           </p>
         </div>
 
@@ -104,7 +93,7 @@ export function ProcessSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {steps.map((step, index) => (
             <motion.div

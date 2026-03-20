@@ -5,22 +5,22 @@ import { AlertTriangle, DatabaseZap, ShieldAlert } from "lucide-react";
 
 const problems = [
   {
-    icon: <AlertTriangle className="w-5 h-5 text-amber-500" />,
-    title: "Prompt Injection Attacks",
+    icon: <ShieldAlert className="w-5 h-5 text-amber-500" />,
+    title: "Unauthorized Tool Execution",
     description:
-      "Attackers manipulate your AI to ignore instructions, extract system prompts, or access data they should not see. One jailbreak could expose your entire customer database.",
+      "Your agent can call any tool it has access to. A system prompt saying 'do not delete files' is not enforcement. It is a suggestion. One unauthorized action can delete data, send emails, or exfiltrate secrets.",
+  },
+  {
+    icon: <AlertTriangle className="w-5 h-5 text-amber-500" />,
+    title: "Context Poisoning",
+    description:
+      "Bad data enters the model and silently corrupts its behavior. Poisoned inputs can manipulate what your agent believes, leading to decisions based on compromised context.",
   },
   {
     icon: <DatabaseZap className="w-5 h-5 text-amber-500" />,
-    title: "Data Leakage in RAG Systems",
+    title: "Instruction Hijacking",
     description:
-      "Your AI retrieves and exposes sensitive information from your knowledge base. Context stuffing and retrieval attacks can extract documents, credentials, and PII.",
-  },
-  {
-    icon: <ShieldAlert className="w-5 h-5 text-amber-500" />,
-    title: "Excessive Agent Authority",
-    description:
-      "Your AI agent has access to APIs, databases, and tools. Privilege escalation attacks can make it perform unauthorized actions, deleting data, accessing admin functions, and exfiltrating information.",
+      "Injected instructions hijack agent actions mid-run. The model's output becomes unsafe instructions that the agent executes without question, turning your tool into an attack vector.",
   },
 ];
 
@@ -58,7 +58,7 @@ export function ProblemSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl font-normal tracking-tight text-white md:text-5xl lg:text-5xl">
-            {"You Shipped AI Fast. But Did You Ship It Securely?".split(" ").map((word, i) => (
+            {"Your Agent Has Full Access. Nothing Is Stopping It.".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -71,9 +71,9 @@ export function ProblemSection() {
               </motion.span>
             ))}
           </h2>
-          
+
           <p className="text-balance text-lg leading-relaxed text-slate-400 md:text-xl max-w-3xl">
-            Every day, companies launch customer-facing AI features like chatbots, agents, and assistants without realizing the security risks lurking beneath. Traditional security testing does not catch AI-specific vulnerabilities.
+            No runtime enforcement exists in any major agent framework today. Your firewall cannot stop unauthorized tool calls. Your WAF cannot detect instruction hijacking. You need an enforcement layer.
           </p>
         </div>
 
@@ -101,7 +101,7 @@ export function ProblemSection() {
         </motion.div>
 
         <p className="mt-12 text-center text-slate-500 text-sm">
-          These are not theoretical risks. They are happening right now to companies just like yours.
+          A system prompt is not a policy. It is a suggestion. You need actual enforcement.
         </p>
       </div>
     </section>

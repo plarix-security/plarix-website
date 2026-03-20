@@ -11,6 +11,7 @@ import { X } from "lucide-react";
 export function CtaSection() {
   const [formOpen, setFormOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     const handler = () => setFormOpen(true);
@@ -18,13 +19,41 @@ export function CtaSection() {
     return () => window.removeEventListener("open-consultation", handler);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormOpen(false);
-      setSubmitted(false);
-    }, 2500);
+    setSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      company: formData.get("company") as string,
+      email: formData.get("email") as string,
+    };
+
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setFormOpen(false);
+          setSubmitted(false);
+        }, 2500);
+      } else {
+        console.error("Failed to submit form");
+        alert("Failed to submit. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -152,6 +181,7 @@ export function CtaSection() {
                           </label>
                           <input
                             type="text"
+                            name="firstName"
                             required
                             placeholder="John"
                             className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 placeholder:text-slate-600 focus:outline-none focus:border-slate-600 transition-colors"
@@ -163,6 +193,7 @@ export function CtaSection() {
                           </label>
                           <input
                             type="text"
+                            name="lastName"
                             required
                             placeholder="Doe"
                             className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 placeholder:text-slate-600 focus:outline-none focus:border-slate-600 transition-colors"
@@ -176,6 +207,7 @@ export function CtaSection() {
                         </label>
                         <input
                           type="text"
+                          name="company"
                           required
                           placeholder="Acme Inc."
                           className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 placeholder:text-slate-600 focus:outline-none focus:border-slate-600 transition-colors"
@@ -188,6 +220,7 @@ export function CtaSection() {
                         </label>
                         <input
                           type="email"
+                          name="email"
                           required
                           placeholder="john@acme.com"
                           className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 placeholder:text-slate-600 focus:outline-none focus:border-slate-600 transition-colors"
@@ -197,9 +230,10 @@ export function CtaSection() {
                       <Button
                         type="submit"
                         size="lg"
-                        className="mt-2 w-full bg-amber-500 text-slate-950 hover:bg-amber-400 font-medium"
+                        disabled={submitting}
+                        className="mt-2 w-full bg-amber-500 text-slate-950 hover:bg-amber-400 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Submit Request
+                        {submitting ? "Submitting..." : "Submit Request"}
                       </Button>
 
                       <p className="text-xs text-slate-500 text-center">

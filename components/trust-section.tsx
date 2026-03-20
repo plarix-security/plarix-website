@@ -56,7 +56,7 @@ export function TrustSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"Why Wyatt".split(" ").map((word, i) => (
+            {"Core Guarantees".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}

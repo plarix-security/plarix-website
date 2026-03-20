@@ -14,39 +14,39 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     id: "1",
-    question: "How is this different from traditional penetration testing?",
+    question: "Does Wyatt work with my existing agent framework?",
     answer:
-      "Traditional pentesting focuses on infrastructure, networks, and web applications. AI security requires specialized knowledge of LLM vulnerabilities, prompt injection, RAG architectures, and agentic systems. We are experts in these emerging attack vectors that standard security firms do not cover.",
+      "Yes. Wyatt is framework-agnostic. It integrates at the tool call layer regardless of what built the agent. LangChain, CrewAI, custom agents, MCP — all work.",
   },
   {
     id: "2",
-    question: "Do you need access to our production environment?",
+    question: "Do I need to rewrite my agents?",
     answer:
-      "We can work with staging or test environments, API sandboxes, or production with appropriate safeguards. We will discuss the best approach during discovery to balance thorough testing with operational safety.",
+      "No. Wyatt sits alongside your existing stack. Integration is one step. No framework changes. No code rewrites.",
   },
   {
     id: "3",
-    question: "What if we are still building our AI features?",
+    question: "What is the AFB Scanner?",
     answer:
-      "Perfect timing. Security is easier to build in than bolt on later. We can review your architecture early and provide guidance before launch, or audit after deployment. Both approaches work.",
+      "A free GitHub App that analyzes your agent repositories on every PR and reports security exposures classified by AFB type. It is the fastest way to see your exposure before deploying Wyatt.",
   },
   {
     id: "4",
-    question: "How technical is the final report?",
+    question: "What is Wyatt's policy language?",
     answer:
-      "We deliver two versions: an executive summary for leadership (business impact, priorities, risk overview) and a detailed technical report for engineering (code-level fixes, architecture recommendations). Everyone gets what they need.",
+      "Policies are simple declarative definitions of what each agent is permitted to do. You define them once. Wyatt enforces them forever.",
   },
   {
     id: "5",
-    question: "What happens after the audit?",
+    question: "Is Wyatt open source?",
     answer:
-      "You receive a complete report and remediation roadmap. We are available for follow-up questions and can validate your fixes. Many clients return for quarterly audits as they add new AI features.",
+      "The SDK and framework adapters are open source. The enforcement engine is not.",
   },
   {
     id: "6",
-    question: "Do we need AI security expertise in-house?",
+    question: "What is Plarix building beyond Wyatt?",
     answer:
-      "No. That is why we exist. We explain everything clearly and provide step-by-step guidance your existing engineering team can follow. No AI security background required.",
+      "Wyatt is the first product. Plarix is building the infrastructure layer for human control over AI systems. More coming.",
   },
 ];
 
@@ -89,7 +89,7 @@ export function FaqSection() {
             </h2>
 
             <p className="text-balance text-base md:text-lg text-slate-400 leading-relaxed max-w-md">
-              Get quick answers about Plarix AI security audits and how we help protect your customer-facing AI implementations. Cannot find what you are looking for? Reach out below.
+              Get quick answers about Wyatt and how it enforces your AI agent policies. Cannot find what you are looking for? Reach out below.
             </p>
           </div>
 

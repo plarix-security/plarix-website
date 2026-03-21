@@ -127,7 +127,7 @@ export function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 flex h-full flex-col justify-center items-center px-6 pt-14 text-center">
         <h1 className="max-w-4xl text-balance text-5xl font-normal tracking-tight text-white md:text-6xl lg:text-7xl">
-          {"You Defined the Tools. Did You Define the Limits?".split(" ").map((word, i) => (
+          {"Agents unleashed. Boundaries unbroken.".split(" ").map((word, i) => (
             <motion.span
               key={`hero-word-${word}-${i}`}
               initial={{ filter: "blur(10px)", opacity: 0 }}

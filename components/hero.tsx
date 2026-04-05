@@ -59,6 +59,12 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          <Link href="/glossary" className="transition-colors hover:text-white whitespace-nowrap">
+            Glossary
+          </Link>
+          <Link href="/blog" className="transition-colors hover:text-white whitespace-nowrap">
+            Blog
+          </Link>
         </div>
 
         {/* Right side: Get Started + mobile toggle */}
@@ -99,6 +105,20 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <Link
+              href="/glossary"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/60 transition-colors hover:text-white py-2"
+            >
+              Glossary
+            </Link>
+            <Link
+              href="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/60 transition-colors hover:text-white py-2"
+            >
+              Blog
+            </Link>
             <a
               href="#cta"
               onClick={(e) => handleNavClick(e, "#cta")}

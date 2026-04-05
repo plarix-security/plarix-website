@@ -7,8 +7,8 @@ import './globals.css'
 const hostGrotesk = Host_Grotesk({ subsets: ["latin"], variable: "--font-host-grotesk" });
 
 export const metadata: Metadata = {
-  title: 'Plarix',
-  description: 'We find critical vulnerabilities in customer-facing AI implementations before they become breaches. Specialized security audits for B2B SaaS companies shipping LLM-powered features.',
+  title: 'Plarix — Runtime Enforcement for AI Agents',
+  description: 'Wyatt is the runtime enforcement layer for AI agents. Intercepts every tool call before execution. Deny by default. Built on the AFB taxonomy — the security framework for agentic AI.',
   generator: 'v0.app',
   icons: {
     icon: [

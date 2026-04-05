@@ -5,14 +5,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 
-const navLinks = [
-  { label: "Problem", href: "/#problem" },
-  { label: "Solution", href: "/#solution" },
-  { label: "Features", href: "/#features" },
-  { label: "Process", href: "/#process" },
-  { label: "FAQ", href: "/#faq" },
-]
-
 export function NavbarSubpage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -32,17 +24,17 @@ export function NavbarSubpage() {
           />
         </Link>
 
-        {/* Desktop nav links */}
+        {/* Desktop nav: Product | Glossary | Blog */}
         <div className="hidden lg:flex items-center gap-8 text-sm text-white/60 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-white whitespace-nowrap"
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link href="/#solution" className="transition-colors hover:text-white whitespace-nowrap">
+            Product
+          </Link>
+          <Link href="/glossary" className="transition-colors hover:text-white whitespace-nowrap">
+            Glossary
+          </Link>
+          <Link href="/blog" className="transition-colors hover:text-white whitespace-nowrap">
+            Blog
+          </Link>
         </div>
 
         {/* Right side */}
@@ -71,16 +63,27 @@ export function NavbarSubpage() {
       {mobileMenuOpen && (
         <div className="bg-slate-950/95 backdrop-blur-sm border-t border-slate-800/50 lg:hidden">
           <div className="flex flex-col px-6 py-6 gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white/60 transition-colors hover:text-white py-2"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <Link
+              href="/#solution"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/60 transition-colors hover:text-white py-2"
+            >
+              Product
+            </Link>
+            <Link
+              href="/glossary"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/60 transition-colors hover:text-white py-2"
+            >
+              Glossary
+            </Link>
+            <Link
+              href="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/60 transition-colors hover:text-white py-2"
+            >
+              Blog
+            </Link>
             <Link
               href="/#cta"
               onClick={() => setMobileMenuOpen(false)}

@@ -8,6 +8,7 @@ import { ProcessSection } from "@/components/process-section";
 import { DeliverablesSection } from "@/components/deliverables-section";
 import { WhoWeServeSection } from "@/components/who-we-serve-section";
 import { TrustSection } from "@/components/trust-section";
+import { FounderSection } from "@/components/founder-section";
 import { FaqSection } from "@/components/faq-section";
 import { CtaSection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
@@ -40,6 +41,7 @@ export default function Home() {
         <DeliverablesSection />
         <WhoWeServeSection />
         <TrustSection />
+        <FounderSection />
         <FaqSection />
         <CtaSection />
       </main>

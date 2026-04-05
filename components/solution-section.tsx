@@ -183,6 +183,7 @@ export function SolutionSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
             className="px-8 py-4 bg-amber-500 text-slate-950 font-medium flex items-center gap-2 hover:bg-amber-400 transition-colors"
           >
             Get Early Access to Wyatt

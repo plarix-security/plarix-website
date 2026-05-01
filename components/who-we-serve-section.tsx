@@ -1,26 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Landmark, HeartPulse, Building2 } from "lucide-react";
+import { Bot, ShieldCheck, Building2 } from "lucide-react";
 
 const audiences = [
   {
-    icon: <Landmark className="w-6 h-6 text-amber-500" />,
-    title: "FinTech and Financial Services",
-    description: "Agents handling financial operations need more than a system prompt. Wyatt enforces what your agents can and cannot touch.",
-    concerns: ["Transaction boundaries", "Data access controls", "Audit compliance", "Authorized operations only"],
+    icon: <Bot className="w-6 h-6 text-amber-500" />,
+    title: "AI B2B SaaS teams shipping agents to enterprise",
+    description:
+      "Your agent is in production. It has tool access. Enterprise buyers are asking how you control what it can do. Wyatt answers that question with a tamper-evident audit trail and deterministic enforcement — not a policy document.",
+    concerns: ["Enterprise security questionnaires", "Audit trails for every action", "Deny-by-default enforcement", "CEE-compliant logs"],
   },
   {
-    icon: <HeartPulse className="w-6 h-6 text-amber-500" />,
-    title: "HealthTech and Healthcare SaaS",
-    description: "Patient data cannot be exposed through an unauthorized tool call. Wyatt enforces access boundaries at runtime.",
-    concerns: ["PHI protection", "Access enforcement", "Audit trails", "Runtime boundaries"],
+    icon: <ShieldCheck className="w-6 h-6 text-amber-500" />,
+    title: "Teams moving agentic products upmarket",
+    description:
+      "Your early customers loved the agent. Now enterprise is asking for SOC 2 evidence, incident response plans, and proof that your agent cannot go rogue. Wyatt gives you the infrastructure to pass that due diligence.",
+    concerns: ["SOC 2 audit readiness", "Incident response evidence", "Action authorization proof", "Security review support"],
   },
   {
     icon: <Building2 className="w-6 h-6 text-amber-500" />,
-    title: "B2B SaaS and Enterprise Tools",
-    description: "Your customers trust you with their data. Wyatt makes sure your agents honor that trust on every single action.",
-    concerns: ["Multi-tenant isolation", "Customer data protection", "Action enforcement", "Every call logged"],
+    title: "Engineers building agents that touch real data",
+    description:
+      "Database access. API calls. File writes. Customer records. Your agent has the keys. One prompt injection, one malformed input, one instruction hijack — and it uses them wrong. Wyatt enforces the boundary at the execution layer, every time.",
+    concerns: ["Tool call enforcement", "Prompt injection defense", "Data access control", "Multi-tenant isolation"],
   },
 ];
 
@@ -54,7 +57,7 @@ export function WhoWeServeSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white max-w-2xl">
-            {"Built for Teams Who Ship Agents and Mean It".split(" ").map((word, i) => (
+            {"Built for AI Teams Selling to Enterprise".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -67,8 +70,8 @@ export function WhoWeServeSection() {
               </motion.span>
             ))}
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed max-w-lg">
-            No matter your industry, if your AI agents have access to tools and data, Wyatt enforces what they are permitted to do.
+          <p className="text-slate-400 text-base leading-relaxed max-w-xl">
+            If your AI agent has live tool access and enterprise buyers are asking how you control it — Wyatt is the answer. Not a policy doc. Actual enforcement.
           </p>
         </div>
 
@@ -90,7 +93,7 @@ export function WhoWeServeSection() {
                 {audience.icon}
               </div>
               <div>
-                <h3 className="text-xl font-medium text-white mb-2">{audience.title}</h3>
+                <h3 className="text-xl font-medium text-white mb-3">{audience.title}</h3>
                 <p className="text-sm text-slate-400 leading-relaxed">{audience.description}</p>
               </div>
               <div className="flex flex-wrap gap-2 mt-auto">

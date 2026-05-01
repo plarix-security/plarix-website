@@ -9,7 +9,7 @@ const steps = [
     title: "Install",
     timeline: "One integration",
     items: [
-      "Wyatt runs alongside your existing agent",
+      "ARGOS runs alongside your existing agent",
       "No framework changes required",
       "No rewrites needed",
       "One integration point",
@@ -23,7 +23,7 @@ const steps = [
       "Declare what each agent is permitted to do",
       "Specify allowed tools and resources",
       "Define permitted operations",
-      "Wyatt enforces from the first run",
+      "ARGOS enforces from the first run",
     ],
   },
   {
@@ -34,7 +34,7 @@ const steps = [
       "Every tool call intercepted automatically",
       "Every action evaluated against policy",
       "Every decision logged",
-      "You do not manage Wyatt. Wyatt manages your agents.",
+      "You do not manage ARGOS. ARGOS manages your agents.",
     ],
   },
 ];
@@ -83,7 +83,7 @@ export function ProcessSection() {
             ))}
           </h2>
           <p className="text-slate-400 text-base leading-relaxed max-w-lg">
-            Wyatt integrates with your existing stack. No rewrites. No framework changes. Just enforcement.
+            Add AI agent security without touching your existing stack. No rewrites. No framework changes. ARGOS runs alongside your agent — enforce, log, protect.
           </p>
         </div>
 

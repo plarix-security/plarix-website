@@ -23,6 +23,11 @@ export function Navbar() {
     [],
   )
 
+  const openForm = useCallback(() => {
+    setMobileMenuOpen(false)
+    window.dispatchEvent(new CustomEvent("open-consultation"))
+  }, [])
+
   return (
     <nav className="fixed top-0 left-0 z-[100] w-full bg-slate-950/25 backdrop-blur-md">
       <div className="relative mx-auto flex h-14 max-w-7xl items-center px-6">
@@ -39,7 +44,7 @@ export function Navbar() {
           />
         </Link>
 
-        {/* Desktop nav: Product | Glossary | Blog */}
+        {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-8 text-sm text-white/60 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <a
             href="#solution"
@@ -48,6 +53,9 @@ export function Navbar() {
           >
             Product
           </a>
+          <Link href="/about" className="transition-colors hover:text-white whitespace-nowrap">
+            About
+          </Link>
           <Link href="/glossary" className="transition-colors hover:text-white whitespace-nowrap">
             Glossary
           </Link>
@@ -56,15 +64,14 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* Right side: Get Started + mobile toggle */}
+        {/* Right side: Get Early Access + mobile toggle */}
         <div className="ml-auto flex items-center gap-4">
-          <a
-            href="#cta"
-            onClick={(e) => handleScrollClick(e, "#cta")}
+          <button
+            onClick={openForm}
             className="hidden text-sm font-medium text-white transition-colors hover:text-white/80 lg:block"
           >
-            Get Started
-          </a>
+            Get Early Access
+          </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="text-white lg:hidden"
@@ -91,6 +98,13 @@ export function Navbar() {
               Product
             </a>
             <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/60 transition-colors hover:text-white py-2"
+            >
+              About
+            </Link>
+            <Link
               href="/glossary"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white/60 transition-colors hover:text-white py-2"
@@ -104,13 +118,12 @@ export function Navbar() {
             >
               Blog
             </Link>
-            <a
-              href="#cta"
-              onClick={(e) => handleScrollClick(e, "#cta")}
-              className="mt-2 text-white font-medium py-2 border-t border-slate-800/50"
+            <button
+              onClick={openForm}
+              className="mt-2 text-white font-medium py-2 border-t border-slate-800/50 text-left"
             >
-              Get Started
-            </a>
+              Get Early Access
+            </button>
           </div>
         </div>
       )}
@@ -121,7 +134,7 @@ export function Navbar() {
 export function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background - User's uploaded space image */}
+      {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/space-bg.jpg')" }}
@@ -132,7 +145,7 @@ export function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 flex h-full flex-col justify-center items-center px-6 pt-14 text-center">
         <h1 className="max-w-4xl text-balance text-5xl font-normal tracking-tight text-white md:text-6xl lg:text-7xl">
-          {"Agents unleashed. Boundaries unbroken.".split(" ").map((word, i) => (
+          {"The LLM stays probabilistic. The behavior becomes controllable.".split(" ").map((word, i) => (
             <motion.span
               key={`hero-word-${word}-${i}`}
               initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -147,8 +160,8 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-balance text-center text-sm leading-relaxed text-white/50 md:text-base">
-          Wyatt is the enforcement layer. A runtime daemon that intercepts every
-          tool call before it executes. Deny by default. Always.
+          Plarix is the enforcement infrastructure that makes AI agent behavior controllable at the execution layer.
+          ARGOS intercepts every tool call before it runs. Policy-based. Deny by default. Always on.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">

@@ -1,28 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layers, ShieldOff, FileCode, Zap } from "lucide-react";
+import { Layers, ShieldOff, FileCode, Lock } from "lucide-react";
 
 const blocks = [
   {
     icon: <Layers className="w-5 h-5 text-amber-500" />,
     title: "Framework Agnostic",
-    description: "Wyatt works with any agent stack. LangChain, CrewAI, custom agents, MCP. No rewrites required.",
+    description: "ARGOS works with any agent stack. LangChain, CrewAI, LlamaIndex, MCP, custom agents. One integration. No rewrites. No framework changes.",
   },
   {
     icon: <ShieldOff className="w-5 h-5 text-amber-500" />,
-    title: "Deny by Default",
-    description: "Nothing executes without explicit policy permission. Not configurable. It is the architecture.",
+    title: "Deny by Default Architecture",
+    description: "Nothing executes without explicit policy permission. Not configurable. It is the architecture. The only enforcement product built this way.",
   },
   {
     icon: <FileCode className="w-5 h-5 text-amber-500" />,
     title: "Built on the AFB Taxonomy",
-    description: "The only enforcement product built from a first-principles security model of how agents actually fail — not a checklist.",
+    description: "The only runtime enforcement product built from a first-principles security model of how agents actually fail — not a generic checklist ported from web security.",
   },
   {
-    icon: <Zap className="w-5 h-5 text-amber-500" />,
-    title: "Set and Forget",
-    description: "Once deployed, Wyatt runs silently. No dashboards to check. No alerts to triage. Just enforcement, always on.",
+    icon: <Lock className="w-5 h-5 text-amber-500" />,
+    title: "Virgil Attestation Layer",
+    description: "Every agent action gets a tamper-evident cryptographic record: action taken, policy matched, identity authorized, timestamp. Built for SOC 2, incident response, and enterprise due diligence.",
   },
 ];
 
@@ -69,6 +69,10 @@ export function TrustSection() {
               </motion.span>
             ))}
           </h2>
+          <p className="text-slate-400 text-base leading-relaxed max-w-xl">
+            Scanners tell you what is wrong. Guardrails filter text. Identity layers manage who can log in.
+            ARGOS manages what the agent can do <em>after</em> it is already running — at the execution layer.
+          </p>
         </div>
 
         {/* Grid */}

@@ -24,6 +24,7 @@ export function Footer() {
           {/* Links */}
           <div className="flex flex-wrap items-center gap-6">
             <Link href="/#solution" className="text-sm text-slate-500 transition-colors hover:text-white">Product</Link>
+            <Link href="/about" className="text-sm text-slate-500 transition-colors hover:text-white">About</Link>
             <Link href="/glossary" className="text-sm text-slate-500 transition-colors hover:text-white">Glossary</Link>
             <Link href="/blog" className="text-sm text-slate-500 transition-colors hover:text-white">Blog</Link>
             <Link href="/privacy" className="text-sm text-slate-500 transition-colors hover:text-white">Privacy</Link>
@@ -71,7 +72,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-8 border-t border-slate-800/30 pt-8">
           <p className="text-xs text-slate-600">
-            2026 Plarix. All rights reserved.
+            &copy; 2026 Plarix. All rights reserved.
           </p>
         </div>
       </div>

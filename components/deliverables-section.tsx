@@ -54,7 +54,7 @@ export function DeliverablesSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"What Wyatt Gives You".split(" ").map((word, i) => (
+            {"AI Agent Security Outputs That Matter".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -67,6 +67,10 @@ export function DeliverablesSection() {
               </motion.span>
             ))}
           </h2>
+
+          <p className="text-slate-400 text-base leading-relaxed max-w-xl">
+            Enforcement is the core. But enterprise AI compliance requires proof — structured audit trails, real-time violation alerts, and AFB exposure reports that answer security reviews directly.
+          </p>
         </div>
 
         {/* Cards Grid */}

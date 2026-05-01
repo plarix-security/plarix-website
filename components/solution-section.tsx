@@ -22,23 +22,23 @@ const features: Feature[] = [
     id: 1,
     title: "1. Agent Calls Tool",
     description:
-      "Your agent attempts to execute a tool call — file access, API request, database query, or any other operation.",
+      "Your agent attempts to execute a tool call — file access, API request, database write, external service, or any real-world operation.",
     icon: <Search className="w-5 h-5" />,
     visual: <DiscoverVisual />,
   },
   {
     id: 2,
-    title: "2. Wyatt Intercepts",
+    title: "2. ARGOS Intercepts",
     description:
-      "Before execution, Wyatt intercepts the call and evaluates it against your defined policy. Every action. Every time.",
+      "Before execution, ARGOS intercepts the call at the runtime layer and evaluates it against your defined AI agent policy. Every action. Every time. No exceptions.",
     icon: <ShieldCheck className="w-5 h-5" />,
     visual: <RedteamVisual />,
   },
   {
     id: 3,
-    title: "3. Allow or Deny",
+    title: "3. Allow or Deny — Logged",
     description:
-      "Wyatt enforces the policy decision. Authorized actions proceed. Unauthorized actions stop. Everything is logged.",
+      "ARGOS enforces the policy decision. Authorized actions proceed. Unauthorized actions are blocked before they land. Every decision is logged as a CEE-compliant audit record.",
     icon: <FileText className="w-5 h-5" />,
     visual: <ReportVisual />,
   },
@@ -66,7 +66,7 @@ export function SolutionSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal leading-[1.1] tracking-tight text-white">
-            {"Runtime Enforcement for AI Agents".split(" ").map((word, i) => (
+            {"AI Agent Security at the Execution Layer".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -80,7 +80,7 @@ export function SolutionSection() {
             ))}
           </h2>
           <p className="text-balance text-slate-400 text-base leading-relaxed">
-            Wyatt is infrastructure. It installs alongside any agent, intercepts every tool call, enforces policy, and logs every decision. Set it up and forget it exists.
+            ARGOS is AI agent security infrastructure. It installs alongside any agent, intercepts every tool call, enforces policy, and logs every decision as a CEE audit record. Set it up and forget it exists.
           </p>
         </div>
 
@@ -186,7 +186,7 @@ export function SolutionSection() {
             onClick={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
             className="px-8 py-4 bg-amber-500 text-slate-950 font-medium flex items-center gap-2 hover:bg-amber-400 transition-colors"
           >
-            Get Early Access to Wyatt
+            Apply for Early Access
             <ChevronRight className="w-4 h-4" />
           </motion.button>
         </div>

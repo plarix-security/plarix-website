@@ -17,30 +17,30 @@ const DEFAULT_FEATURES: FeatureItem[] = [
   {
     id: "1",
     icon: <ShieldAlert className="w-5 h-5 text-white" />,
-    title: "Policy Enforcement",
-    description: "Wyatt intercepts every tool call and enforces exactly what each agent is permitted to do. Not a suggestion. Actual enforcement.",
-    items: ["Intercepts every tool call before execution", "Evaluates against your defined policy", "Denies unauthorized actions automatically", "Logs every decision for audit"],
+    title: "AI Agent Policy Enforcement",
+    description: "ARGOS intercepts every tool call and enforces exactly what each AI agent is authorized to do. Not a suggestion. Actual enforcement — deny by default.",
+    items: ["Intercepts every tool call before execution", "Evaluates against declarative agent policy", "Blocks unauthorized actions deterministically", "Logs every decision as CEE audit record"],
   },
   {
     id: "2",
     icon: <Database className="w-5 h-5 text-white" />,
-    title: "Context Protection",
-    description: "Wyatt monitors what enters your agent's context and flags poisoned inputs before they corrupt behavior.",
-    items: ["Monitors context window inputs", "Detects poisoned or malicious data", "Flags suspicious context changes", "Prevents silent behavior corruption"],
+    title: "Context Integrity Protection",
+    description: "ARGOS monitors what enters your agent's context and flags prompt injection and poisoned inputs before they corrupt behavior and drive unauthorized actions.",
+    items: ["Monitors RAG and context window inputs", "Detects prompt injection attempts", "Flags poisoned or manipulated data", "Prevents silent behavior corruption"],
   },
   {
     id: "3",
     icon: <Bot className="w-5 h-5 text-white" />,
     title: "Instruction Integrity",
-    description: "Wyatt validates that model output stays within authorized intent before the agent acts on it.",
-    items: ["Validates model output instructions", "Checks authorized intent boundaries", "Blocks hijacked action sequences", "Prevents instruction injection attacks"],
+    description: "ARGOS validates that model output stays within authorized intent before the agent acts — blocking hijacked instruction sequences before they execute.",
+    items: ["Validates model output against authorized intent", "Blocks instruction hijack sequences", "Prevents agent from acting on injected instructions", "Reduces prompt injection attack surface"],
   },
   {
     id: "4",
     icon: <Github className="w-5 h-5 text-white" />,
-    title: "AFB Scanner — Free",
-    description: "A GitHub App that scans your agent codebase on every PR and reports AFB exposures before they reach production. Free. Always.",
-    items: ["Scans on every pull request", "Reports exposures by AFB type", "Catches issues before production", "Zero cost entry point"],
+    title: "Wyscan — Free AI Agent Security Scanner",
+    description: "A free GitHub App that scans your LangChain, CrewAI, or custom agent codebase on every PR and reports unauthorized action exposures before they reach production.",
+    items: ["Scans on every pull request", "Reports exposures by AFB type", "Supports LangChain, CrewAI, MCP, AutoGen", "Zero cost — always free"],
   },
 ];
 
@@ -90,7 +90,7 @@ export function FeaturesSection({ className }: FeaturesSectionProps) {
             </span>
           </div>
           <h2 className="text-balance text-white text-4xl md:text-5xl lg:text-5xl font-normal leading-[1.1] max-w-[700px] tracking-tight">
-            {"What Wyatt Protects Against".split(" ").map((word, i) => (
+            {"How ARGOS Secures Your AI Agents".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -103,6 +103,9 @@ export function FeaturesSection({ className }: FeaturesSectionProps) {
               </motion.span>
             ))}
           </h2>
+          <p className="text-slate-400 text-base leading-relaxed max-w-xl">
+            AI agent security requires enforcement at every layer — tool call authorization, context integrity, instruction validation, and static exposure detection. ARGOS covers all four.
+          </p>
         </motion.div>
 
         {/* Features Grid */}

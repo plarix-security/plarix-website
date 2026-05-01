@@ -24,10 +24,13 @@ export function NavbarSubpage() {
           />
         </Link>
 
-        {/* Desktop nav: Product | Glossary | Blog */}
+        {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-8 text-sm text-white/60 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <Link href="/#solution" className="transition-colors hover:text-white whitespace-nowrap">
             Product
+          </Link>
+          <Link href="/about" className="transition-colors hover:text-white whitespace-nowrap">
+            About
           </Link>
           <Link href="/glossary" className="transition-colors hover:text-white whitespace-nowrap">
             Glossary
@@ -43,7 +46,7 @@ export function NavbarSubpage() {
             href="/#cta"
             className="hidden text-sm font-medium text-white transition-colors hover:text-white/80 lg:block"
           >
-            Get Started
+            Get Early Access
           </Link>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -71,6 +74,13 @@ export function NavbarSubpage() {
               Product
             </Link>
             <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/60 transition-colors hover:text-white py-2"
+            >
+              About
+            </Link>
+            <Link
               href="/glossary"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white/60 transition-colors hover:text-white py-2"
@@ -89,7 +99,7 @@ export function NavbarSubpage() {
               onClick={() => setMobileMenuOpen(false)}
               className="mt-2 text-white font-medium py-2 border-t border-slate-800/50"
             >
-              Get Started
+              Get Early Access
             </Link>
           </div>
         </div>

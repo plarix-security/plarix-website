@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
-    const { error } = await supabase.from("leads").insert({
+    const { error } = await supabase.from("wyatt_early_access").insert({
       first_name: sanitize(firstName),
       last_name: sanitize(lastName),
       company: sanitize(company),

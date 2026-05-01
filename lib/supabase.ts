@@ -2,7 +2,7 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 let cachedClient: SupabaseClient | null = null;
 
-export function getSupabaseClient(): SupabaseClient | null {
+export function getSupabaseClientOrNull(): SupabaseClient | null {
   if (cachedClient) {
     return cachedClient;
   }

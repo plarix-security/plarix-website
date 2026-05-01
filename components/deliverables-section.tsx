@@ -67,7 +67,6 @@ export function DeliverablesSection() {
               </motion.span>
             ))}
           </h2>
-        </div>
 
           <p className="text-slate-400 text-base leading-relaxed max-w-xl">
             Enforcement is the core. But enterprise AI compliance requires proof — structured audit trails, real-time violation alerts, and AFB exposure reports that answer security reviews directly.

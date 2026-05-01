@@ -7,6 +7,8 @@ interface Lead {
   lastName: string;
   company: string;
   email: string;
+  agentStack?: string;
+  repoUrl?: string;
   timestamp: string;
   ip: string;
 }
@@ -88,7 +90,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { firstName, lastName, company, email } = body;
+    const { firstName, lastName, company, email, agentStack, repoUrl } = body;
 
     // Validate required fields exist
     if (!firstName || !lastName || !company || !email) {
@@ -125,6 +127,8 @@ export async function POST(request: NextRequest) {
       lastName: sanitize(lastName),
       company: sanitize(company),
       email: email.trim().toLowerCase().slice(0, 254),
+      agentStack: agentStack ? sanitize(agentStack) : undefined,
+      repoUrl: repoUrl ? sanitize(repoUrl).slice(0, 500) : undefined,
       timestamp: new Date().toISOString(),
       ip: ip,
     };

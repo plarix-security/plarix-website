@@ -8,6 +8,17 @@ import Image from "next/image";
 import { useState } from "react";
 import { X } from "lucide-react";
 
+const AGENT_STACKS = [
+  "LangChain",
+  "CrewAI",
+  "LlamaIndex",
+  "MCP (Model Context Protocol)",
+  "AutoGen",
+  "LangGraph",
+  "Custom / Internal",
+  "Other",
+];
+
 export function CtaSection() {
   const [formOpen, setFormOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -29,6 +40,8 @@ export function CtaSection() {
       lastName: formData.get("lastName") as string,
       company: formData.get("company") as string,
       email: formData.get("email") as string,
+      agentStack: formData.get("agentStack") as string,
+      repoUrl: formData.get("repoUrl") as string,
     };
 
     try {
@@ -43,13 +56,11 @@ export function CtaSection() {
         setTimeout(() => {
           setFormOpen(false);
           setSubmitted(false);
-        }, 2500);
+        }, 3000);
       } else {
-        console.error("Failed to submit form");
         alert("Failed to submit. Please try again.");
       }
-    } catch (error) {
-      console.error("Error submitting form:", error);
+    } catch {
       alert("Failed to submit. Please try again.");
     } finally {
       setSubmitting(false);
@@ -84,35 +95,40 @@ export function CtaSection() {
           </h2>
 
           <p className="text-balance max-w-xl text-base leading-relaxed text-slate-500 md:text-lg">
-            Nothing is enforcing what they can do. Wyatt changes that.
+            Nothing is enforcing what they can and cannot do. ARGOS (Wyatt) changes that — runtime enforcement at the execution layer, deny by default, always on.
           </p>
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+          <p className="text-sm text-slate-400 max-w-md">
+            We are working directly with a small number of design partner teams — AI B2B SaaS companies with agents in production. Apply below and we will reach out within 24 hours.
+          </p>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center w-full">
             <Button
               size="lg"
               className="bg-slate-950 px-8 text-white hover:bg-slate-800 font-medium"
               onClick={() => setFormOpen(true)}
             >
-              Get Early Access to Wyatt
+              Apply for Early Access
             </Button>
             <span className="text-sm text-slate-400">
-              Or start free with the{" "}
+              Or install Wyscan free:{" "}
               <a
                 href="https://github.com/apps/afb-scanner"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline underline-offset-2 hover:text-slate-600 transition-colors"
               >
-                AFB Scanner
+                GitHub App
               </a>
             </span>
           </div>
         </div>
       </div>
 
-      {/* Consultation Form Panel */}
+      {/* Form Panel */}
       <AnimatePresence>
         {formOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -121,16 +137,14 @@ export function CtaSection() {
               onClick={() => setFormOpen(false)}
             />
 
-            {/* Panel */}
             <motion.div
               initial={{ opacity: 0, y: 40, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 40, scale: 0.96 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed inset-0 z-[201] flex items-center justify-center px-4"
+              className="fixed inset-0 z-[201] flex items-center justify-center px-4 py-8 overflow-y-auto"
             >
-              <div className="relative w-full max-w-md bg-slate-950/70 backdrop-blur-xl border border-slate-800/50 p-8">
-                {/* Close button */}
+              <div className="relative w-full max-w-md bg-slate-950/90 backdrop-blur-xl border border-slate-800/50 p-8 my-auto">
                 <button
                   onClick={() => setFormOpen(false)}
                   className="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors"
@@ -149,7 +163,7 @@ export function CtaSection() {
                       className="w-12 h-12 object-contain invert brightness-200"
                     />
                     <p className="text-white text-lg font-medium">
-                      Thank you!
+                      Application received.
                     </p>
                     <p className="text-slate-400 text-sm text-center">
                       We will reach out within 24 hours.
@@ -157,22 +171,27 @@ export function CtaSection() {
                   </div>
                 ) : (
                   <>
-                    <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-start gap-3 mb-2">
                       <Image
                         src="/images/plarix-shield.png"
                         alt="Plarix"
                         width={40}
                         height={40}
-                        className="w-10 h-10 object-contain invert brightness-200"
+                        className="w-10 h-10 object-contain invert brightness-200 shrink-0 mt-0.5"
                       />
-                      <h3 className="text-white text-lg font-medium">
-                        Get Early Access
-                      </h3>
+                      <div>
+                        <h3 className="text-white text-lg font-medium">
+                          Apply for Early Access
+                        </h3>
+                        <p className="text-slate-500 text-sm mt-1">
+                          We are selecting design partner teams. Tell us about your stack and we will reach out within 24 hours.
+                        </p>
+                      </div>
                     </div>
 
                     <form
                       onSubmit={handleSubmit}
-                      className="flex flex-col gap-4"
+                      className="flex flex-col gap-4 mt-6"
                     >
                       <div className="grid grid-cols-2 gap-4">
                         <div className="flex flex-col gap-1.5">
@@ -203,20 +222,20 @@ export function CtaSection() {
 
                       <div className="flex flex-col gap-1.5">
                         <label className="text-xs text-slate-400">
-                          Company Name
+                          Company
                         </label>
                         <input
                           type="text"
                           name="company"
                           required
-                          placeholder="Acme Inc."
+                          placeholder="Acme AI"
                           className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 placeholder:text-slate-600 focus:outline-none focus:border-slate-600 transition-colors"
                         />
                       </div>
 
                       <div className="flex flex-col gap-1.5">
                         <label className="text-xs text-slate-400">
-                          Email Address
+                          Work Email
                         </label>
                         <input
                           type="email"
@@ -227,13 +246,47 @@ export function CtaSection() {
                         />
                       </div>
 
+                      <div className="flex flex-col gap-1.5">
+                        <label className="text-xs text-slate-400">
+                          Agent Stack
+                        </label>
+                        <select
+                          name="agentStack"
+                          required
+                          defaultValue=""
+                          className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 focus:outline-none focus:border-slate-600 transition-colors appearance-none"
+                        >
+                          <option value="" disabled className="text-slate-600">
+                            Select your framework
+                          </option>
+                          {AGENT_STACKS.map((stack) => (
+                            <option key={stack} value={stack}>
+                              {stack}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div className="flex flex-col gap-1.5">
+                        <label className="text-xs text-slate-400">
+                          GitHub Repo{" "}
+                          <span className="text-slate-600">(optional)</span>
+                        </label>
+                        <input
+                          type="url"
+                          name="repoUrl"
+                          placeholder="https://github.com/your-org/your-agent"
+                          className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 placeholder:text-slate-600 focus:outline-none focus:border-slate-600 transition-colors"
+                        />
+                      </div>
+
                       <Button
                         type="submit"
                         size="lg"
                         disabled={submitting}
                         className="mt-2 w-full bg-amber-500 text-slate-950 hover:bg-amber-400 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {submitting ? "Submitting..." : "Submit Request"}
+                        {submitting ? "Submitting..." : "Submit Application"}
                       </Button>
 
                       <p className="text-xs text-slate-500 text-center">

@@ -6,21 +6,21 @@ import { AlertTriangle, DatabaseZap, ShieldAlert } from "lucide-react";
 const problems = [
   {
     icon: <ShieldAlert className="w-5 h-5 text-amber-500" />,
-    title: "Unauthorized Tool Execution",
+    title: "No Enforcement Layer Exists",
     description:
-      "Your agent can call any tool it has access to. A system prompt saying 'do not delete files' is not enforcement. It is a suggestion. One unauthorized action can delete data, send emails, or exfiltrate secrets.",
+      "System prompts ask the model to behave. Output filters catch bad text after the model decides. Observability tools tell you what happened after the agent acted. None of these are enforcement. The action still executes — or already has.",
   },
   {
     icon: <AlertTriangle className="w-5 h-5 text-amber-500" />,
-    title: "Context Poisoning",
+    title: "Unpredictability Becomes Operational Risk",
     description:
-      "Bad data enters the model and silently corrupts its behavior. Poisoned inputs can manipulate what your agent believes, leading to decisions based on compromised context.",
+      "LLMs are probabilistic. They always produce unexpected outputs. When those outputs drive agents that take real actions — API calls, file writes, messages, purchases — unpredictability stops being a research problem and becomes a liability.",
   },
   {
     icon: <DatabaseZap className="w-5 h-5 text-amber-500" />,
-    title: "Instruction Hijacking",
+    title: "Enterprise Is Asking How You Control It",
     description:
-      "Injected instructions hijack agent actions mid-run. The model's output becomes unsafe instructions that the agent executes without question, turning your tool into an attack vector.",
+      "AI B2B SaaS companies with agents in production are stalling on enterprise deals because they have no infrastructure-level answer to: \"How do you guarantee the agent stays in bounds?\" A policy document is not an answer. Enforcement is.",
   },
 ];
 
@@ -44,11 +44,10 @@ const itemVariants = {
 export function ProblemSection() {
   return (
     <section id="problem" className="relative w-full bg-slate-950 py-24 md:py-32 border-b border-slate-800/30">
-      {/* Grain texture overlay */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.015]" style={{
         backgroundImage: "url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><filter id=%22noise%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 result=%22noise%22 /></filter><rect width=%22100%22 height=%22100%22 filter=%22url(%23noise)%22 fill=%22%23ffffff%22/></svg>'\")",
       }} />
-      
+
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center px-6 md:px-12 lg:px-16">
         <div className="flex flex-col items-center text-center gap-8 mb-16">
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
@@ -58,7 +57,7 @@ export function ProblemSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl font-normal tracking-tight text-white md:text-5xl lg:text-5xl">
-            {"Your Agent Has Full Access. Nothing Is Stopping It.".split(" ").map((word, i) => (
+            {"There is no enforcement layer between what an agent decides and what it executes.".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -73,7 +72,7 @@ export function ProblemSection() {
           </h2>
 
           <p className="text-balance text-lg leading-relaxed text-slate-400 md:text-xl max-w-3xl">
-            No runtime enforcement exists in any major agent framework today. Your firewall cannot stop unauthorized tool calls. Your WAF cannot detect instruction hijacking. You need an enforcement layer.
+            The agent acts, and you find out afterward. That is the current state of every major agent framework today.
           </p>
         </div>
 

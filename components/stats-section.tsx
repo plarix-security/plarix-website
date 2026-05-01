@@ -3,10 +3,26 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "Zero", label: "frameworks", context: "No runtime enforcement exists in any major agent framework today" },
-  { value: "100%", label: "suggestions", context: "System prompts are suggestions, not policies. They can be ignored." },
-  { value: "One", label: "tool call", context: "One unauthorized action can delete data, send emails, or exfiltrate secrets" },
-  { value: "AFB", label: "taxonomy", context: "Agent Failure Boundaries: four categories define how agent systems actually break" },
+  {
+    value: "Zero",
+    label: "Native Enforcement",
+    context: "No major agent framework ships runtime enforcement. LangChain, CrewAI, AutoGen — zero. System prompts are not enforcement."
+  },
+  {
+    value: "AFB04",
+    label: "Unauthorized Action",
+    context: "The execution-layer failure category. Your agent calls a tool it was not authorized to call. One action. Irreversible damage."
+  },
+  {
+    value: "100%",
+    label: "Tool Call Coverage",
+    context: "ARGOS intercepts every tool call before execution. Not sampled. Not filtered. Every call, every time, evaluated against policy."
+  },
+  {
+    value: "CEE",
+    label: "Audit Standard",
+    context: "Canonical Execution Event — structured logs that answer enterprise security questionnaires directly. What did it do, why, under what authority."
+  },
 ];
 
 const containerVariants = {
@@ -38,7 +54,7 @@ export function StatsSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"The Enforcement Gap Is Real".split(" ").map((word, i) => (
+            {"The Authorization Gap Is Real".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -80,7 +96,7 @@ export function StatsSection() {
         </motion.div>
 
         <p className="mt-12 text-center text-slate-400 text-base max-w-2xl mx-auto">
-          Your firewall cannot stop unauthorized tool calls. Your WAF cannot detect instruction hijacking. You need Wyatt.
+          Your firewall cannot stop unauthorized tool calls. Your WAF cannot detect instruction hijacking. You need ARGOS.
         </p>
       </div>
     </section>

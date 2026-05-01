@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plarix.dev/sitemap.xml

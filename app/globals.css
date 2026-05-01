@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --font-host-grotesk: 'Host Grotesk';
   --background: oklch(0.06 0.015 260);
   --foreground: oklch(0.93 0 0);
   --card: oklch(0.08 0.015 260);

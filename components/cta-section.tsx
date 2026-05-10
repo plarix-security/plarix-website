@@ -19,6 +19,13 @@ const AGENT_STACKS = [
   "Other",
 ];
 
+function buildMailtoFallback(data: { firstName: string; lastName: string; company: string; email: string; agentStack: string; repoUrl: string }) {
+  const body = encodeURIComponent(
+    `Name: ${data.firstName} ${data.lastName}\nCompany: ${data.company}\nEmail: ${data.email}\nStack: ${data.agentStack}${data.repoUrl ? `\nRepo: ${data.repoUrl}` : ""}`
+  );
+  return `mailto:security@plarix.dev?subject=${encodeURIComponent("Early Access Application")}&body=${body}`;
+}
+
 export function CtaSection() {
   const [formOpen, setFormOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -58,10 +65,10 @@ export function CtaSection() {
           setSubmitted(false);
         }, 3000);
       } else {
-        window.location.href = `mailto:security@plarix.dev?subject=Early Access Application&body=Name: ${data.firstName} ${data.lastName}%0ACompany: ${data.company}%0AEmail: ${data.email}%0AStack: ${data.agentStack}`;
+        window.location.href = buildMailtoFallback(data);
       }
     } catch {
-      window.location.href = `mailto:security@plarix.dev?subject=Early Access Application`;
+      window.location.href = buildMailtoFallback(data);
     } finally {
       setSubmitting(false);
     }

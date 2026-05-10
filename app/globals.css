@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --font-host-grotesk: 'Host Grotesk';
   --background: oklch(0.06 0.015 260);
   --foreground: oklch(0.93 0 0);
   --card: oklch(0.08 0.015 260);
@@ -127,8 +128,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    overflow-y: hidden !important;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
   }
   a, button, [role="button"], input[type="submit"], input[type="button"], select, summary {
     cursor: pointer;

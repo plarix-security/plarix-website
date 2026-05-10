@@ -58,10 +58,10 @@ export function CtaSection() {
           setSubmitted(false);
         }, 3000);
       } else {
-        alert("Failed to submit. Please try again.");
+        window.location.href = `mailto:security@plarix.dev?subject=Early Access Application&body=Name: ${data.firstName} ${data.lastName}%0ACompany: ${data.company}%0AEmail: ${data.email}%0AStack: ${data.agentStack}`;
       }
     } catch {
-      alert("Failed to submit. Please try again.");
+      window.location.href = `mailto:security@plarix.dev?subject=Early Access Application`;
     } finally {
       setSubmitting(false);
     }

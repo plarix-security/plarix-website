@@ -161,7 +161,7 @@ export function Hero() {
 
         <p className="mt-6 max-w-2xl text-balance text-center text-sm leading-relaxed text-white/50 md:text-base">
           Plarix is the enforcement infrastructure that makes AI agent behavior controllable at the execution layer.
-          ARGOS intercepts every tool call before it runs. Policy-based. Deny by default. Always on.
+          Wyatt intercepts every tool call before it runs. Policy-based. Deny by default. Always on.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">

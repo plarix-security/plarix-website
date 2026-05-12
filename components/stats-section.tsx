@@ -16,7 +16,7 @@ const stats = [
   {
     value: "100%",
     label: "Tool Call Coverage",
-    context: "ARGOS intercepts every tool call before execution. Not sampled. Not filtered. Every call, every time, evaluated against policy."
+    context: "Wyatt intercepts every tool call before execution. Not sampled. Not filtered. Every call, every time, evaluated against policy."
   },
   {
     value: "CEE",
@@ -96,7 +96,7 @@ export function StatsSection() {
         </motion.div>
 
         <p className="mt-12 text-center text-slate-400 text-base max-w-2xl mx-auto">
-          Your firewall cannot stop unauthorized tool calls. Your WAF cannot detect instruction hijacking. You need ARGOS.
+          Your firewall cannot stop unauthorized tool calls. Your WAF cannot detect instruction hijacking. You need Wyatt.
         </p>
       </div>
     </section>

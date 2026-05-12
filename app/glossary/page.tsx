@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Agent Security Glossary — Plarix",
     description:
-      "Authoritative definitions for AFB01–AFB04, CEE, Authorization Gap, Wyatt, and Wyscan — the core vocabulary of AI agent security.",
+      "Authoritative definitions for AFB01-AFB04, CEE, Authorization Gap, Wyatt, and Wyscan — the core vocabulary of AI agent security.",
     url: "https://plarix.dev/glossary",
     siteName: "Plarix",
     type: "website",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Agent Security Glossary — Plarix",
     description:
-      "Authoritative definitions for AFB01–AFB04, CEE, Authorization Gap, Wyatt, and Wyscan.",
+      "Authoritative definitions for AFB01-AFB04, CEE, Authorization Gap, Wyatt, and Wyscan.",
   },
 }
 
@@ -111,7 +111,7 @@ const terms = [
     definition:
       "A static analysis scanner that detects AFB04 exposures in agent codebases before production.",
     explanation:
-      "Wyscan parses Python codebases with tree-sitter, resolves tool registrations semantically, and traces reachable call paths to identify dangerous operations — shell execution, file deletion, database writes, HTTP mutations — that lack authorization gates. It runs as a CLI or as a GitHub App on every pull request, classifying findings as critical, warning, or info. Wyscan covers AFB04 only; it does not detect AFB01–AFB03. It is the static complement to Wyatt's runtime enforcement.",
+      "Wyscan parses Python codebases with tree-sitter, resolves tool registrations semantically, and traces reachable call paths to identify dangerous operations — shell execution, file deletion, database writes, HTTP mutations — that lack authorization gates. It runs as a CLI or as a GitHub App on every pull request, classifying findings as critical, warning, or info. Wyscan covers AFB04 only; it does not detect AFB01-AFB03. It is the static complement to Wyatt's runtime enforcement.",
     whyItMatters:
       "Most agent security issues are visible in the code before deployment. Wyscan makes them findable before they reach production.",
   },
@@ -122,7 +122,7 @@ const schemaData = {
   "@type": "DefinedTermSet",
   name: "Plarix AI Agent Security Glossary",
   description:
-    "Authoritative definitions for the core vocabulary of AI agent security, including AFB01–AFB04, CEE, Authorization Gap, Wyatt, and Wyscan.",
+    "Authoritative definitions for the core vocabulary of AI agent security, including AFB01-AFB04, CEE, Authorization Gap, Wyatt, and Wyscan.",
   url: "https://plarix.dev/glossary",
   hasDefinedTerm: terms.map((term) => ({
     "@type": "DefinedTerm",

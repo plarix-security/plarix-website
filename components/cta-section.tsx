@@ -103,7 +103,7 @@ export function CtaSection() {
           </h2>
 
           <p className="text-balance max-w-xl text-base leading-relaxed text-slate-500 md:text-lg">
-            Nothing is enforcing what they can and cannot do. ARGOS (Wyatt) changes that — runtime enforcement at the execution layer, deny by default, always on.
+            Nothing is enforcing what they can and cannot do. Wyatt changes that — runtime enforcement at the execution layer, deny by default, always on.
           </p>
 
           <p className="text-sm text-slate-400 max-w-md">

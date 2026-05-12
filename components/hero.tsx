@@ -38,8 +38,8 @@ export function Navbar() {
             alt="Plarix"
             width={400}
             height={100}
-            className="invert brightness-[300]"
-            style={{ height: "76px", width: "auto" }}
+            className=""
+            style={{ height: "76px", width: "auto", filter: "invert(1) brightness(2.5)" }}
             priority
           />
         </Link>

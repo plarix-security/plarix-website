@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     'AFB taxonomy',
     'agent failure boundary',
     'CEE audit log',
-    'ARGOS agent runtime',
+    'Wyatt agent runtime',
     'Wyatt enforcement',
     'Plarix',
     'unauthorized action prevention',

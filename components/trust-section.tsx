@@ -7,7 +7,7 @@ const blocks = [
   {
     icon: <Layers className="w-5 h-5 text-amber-500" />,
     title: "Framework Agnostic",
-    description: "ARGOS works with any agent stack. LangChain, CrewAI, LlamaIndex, MCP, custom agents. One integration. No rewrites. No framework changes.",
+    description: "Wyatt works with any agent stack. LangChain, CrewAI, LlamaIndex, MCP, custom agents. One integration. No rewrites. No framework changes.",
   },
   {
     icon: <ShieldOff className="w-5 h-5 text-amber-500" />,
@@ -71,7 +71,7 @@ export function TrustSection() {
           </h2>
           <p className="text-slate-400 text-base leading-relaxed max-w-xl">
             Scanners tell you what is wrong. Guardrails filter text. Identity layers manage who can log in.
-            ARGOS manages what the agent can do <em>after</em> it is already running — at the execution layer.
+            Wyatt manages what the agent can do <em>after</em> it is already running — at the execution layer.
           </p>
         </div>
 

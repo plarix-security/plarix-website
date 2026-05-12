@@ -9,14 +9,14 @@ const PUBLISHED = "2026-04-05T00:00:00Z"
 export const metadata: Metadata = {
   title: "What is an Agent Failure Boundary? — Plarix Blog",
   description:
-    "A technical explanation of AFB01–AFB04: the four ways AI agent systems fail, with real examples of context poisoning, model boundary compromise, instruction hijack, and unauthorized action.",
+    "A technical explanation of AFB01-AFB04: the four ways AI agent systems fail, with real examples of context poisoning, model boundary compromise, instruction hijack, and unauthorized action.",
   alternates: {
     canonical: POST_URL,
   },
   openGraph: {
     title: "What is an Agent Failure Boundary? — Plarix Blog",
     description:
-      "A technical explanation of AFB01–AFB04: the four ways AI agent systems fail, with real examples of context poisoning, model boundary compromise, instruction hijack, and unauthorized action.",
+      "A technical explanation of AFB01-AFB04: the four ways AI agent systems fail, with real examples of context poisoning, model boundary compromise, instruction hijack, and unauthorized action.",
     url: POST_URL,
     siteName: "Plarix",
     type: "article",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "What is an Agent Failure Boundary? — Plarix Blog",
     description:
-      "A technical explanation of AFB01–AFB04: the four ways AI agent systems fail, with real examples.",
+      "A technical explanation of AFB01-AFB04: the four ways AI agent systems fail, with real examples.",
   },
 }
 
@@ -36,7 +36,7 @@ const schemaData = {
   "@type": "BlogPosting",
   headline: "What is an Agent Failure Boundary?",
   description:
-    "A technical explanation of AFB01–AFB04: the four ways AI agent systems fail, with real examples of context poisoning, model boundary compromise, instruction hijack, and unauthorized action.",
+    "A technical explanation of AFB01-AFB04: the four ways AI agent systems fail, with real examples of context poisoning, model boundary compromise, instruction hijack, and unauthorized action.",
   url: POST_URL,
   datePublished: PUBLISHED,
   author: {

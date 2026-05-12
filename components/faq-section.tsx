@@ -14,15 +14,15 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     id: "1",
-    question: "Does ARGOS work with my existing agent framework?",
+    question: "Does Wyatt work with my existing agent framework?",
     answer:
-      "Yes. ARGOS (Wyatt) is framework-agnostic — it integrates at the tool call layer regardless of what built the agent. LangChain, CrewAI, LlamaIndex, AutoGen, MCP, or a fully custom stack. No rewrites. One integration point.",
+      "Yes. Wyatt is framework-agnostic — it integrates at the tool call layer regardless of what built the agent. LangChain, CrewAI, LlamaIndex, AutoGen, MCP, or a fully custom stack. No rewrites. One integration point.",
   },
   {
     id: "2",
     question: "Do I need to rewrite my agents to add AI agent security?",
     answer:
-      "No. ARGOS sits alongside your existing stack as a runtime daemon. Integration is one step. No framework changes. No code rewrites. Your agent runs exactly as before — with enforcement now sitting in front of every tool call.",
+      "No. Wyatt sits alongside your existing stack as a runtime daemon. Integration is one step. No framework changes. No code rewrites. Your agent runs exactly as before — with enforcement now sitting in front of every tool call.",
   },
   {
     id: "3",
@@ -32,27 +32,27 @@ const faqs: FAQItem[] = [
   },
   {
     id: "4",
-    question: "How does ARGOS enforce AI agent policy?",
+    question: "How does Wyatt enforce AI agent policy?",
     answer:
-      "Policies are simple declarative definitions of what each agent is permitted to do — which tools, which resources, which operations. You define them once. ARGOS enforces them on every tool call, forever. Unauthorized actions are blocked before they execute.",
+      "Policies are simple declarative definitions of what each agent is permitted to do — which tools, which resources, which operations. You define them once. Wyatt enforces them on every tool call, forever. Unauthorized actions are blocked before they execute.",
   },
   {
     id: "5",
-    question: "Is ARGOS open source?",
+    question: "Is Wyatt open source?",
     answer:
-      "The static analysis tool (Wyscan) and framework adapters are open source under Apache 2.0. The runtime enforcement engine (ARGOS/Wyatt) and the Virgil attestation layer are proprietary. The CEE standard is open (CC0).",
+      "The static analysis tool (Wyscan) and framework adapters are open source under Apache 2.0. The runtime enforcement engine (Wyatt) and the Virgil attestation layer are proprietary. The CEE standard is open (CC0).",
   },
   {
     id: "6",
     question: "How does this help with enterprise AI security reviews?",
     answer:
-      "Enterprise buyers ask: how do you guarantee the agent stays in bounds? ARGOS gives you a structural answer — deny-by-default policy enforcement — plus tamper-evident CEE audit logs that map directly to SOC 2 and security questionnaire requirements.",
+      "Enterprise buyers ask: how do you guarantee the agent stays in bounds? Wyatt gives you a structural answer — deny-by-default policy enforcement — plus tamper-evident CEE audit logs that map directly to SOC 2 and security questionnaire requirements.",
   },
   {
     id: "7",
     question: "How is this different from LLM guardrails or prompt injection filters?",
     answer:
-      "Guardrails filter model text. Prompt injection filters scan inputs. Neither stops an authorized tool from being called in an unauthorized context. ARGOS operates at the execution layer — before the action lands in the real world — not at the text layer.",
+      "Guardrails filter model text. Prompt injection filters scan inputs. Neither stops an authorized tool from being called in an unauthorized context. Wyatt operates at the execution layer — before the action lands in the real world — not at the text layer.",
   },
 ];
 
@@ -95,7 +95,7 @@ export function FaqSection() {
             </h2>
 
             <p className="text-balance text-base md:text-lg text-slate-400 leading-relaxed max-w-md">
-              How ARGOS enforces AI agent security at the execution layer — and why it works where guardrails, monitoring, and system prompts do not.
+              How Wyatt enforces AI agent security at the execution layer — and why it works where guardrails, monitoring, and system prompts do not.
             </p>
 
             <p className="text-sm text-slate-500">

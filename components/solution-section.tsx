@@ -28,9 +28,9 @@ const features: Feature[] = [
   },
   {
     id: 2,
-    title: "2. ARGOS Intercepts",
+    title: "2. Wyatt Intercepts",
     description:
-      "Before execution, ARGOS intercepts the call at the runtime layer and evaluates it against your defined AI agent policy. Every action. Every time. No exceptions.",
+      "Before execution, Wyatt intercepts the call at the runtime layer and evaluates it against your defined AI agent policy. Every action. Every time. No exceptions.",
     icon: <ShieldCheck className="w-5 h-5" />,
     visual: <RedteamVisual />,
   },
@@ -38,7 +38,7 @@ const features: Feature[] = [
     id: 3,
     title: "3. Allow or Deny — Logged",
     description:
-      "ARGOS enforces the policy decision. Authorized actions proceed. Unauthorized actions are blocked before they land. Every decision is logged as a CEE-compliant audit record.",
+      "Wyatt enforces the policy decision. Authorized actions proceed. Unauthorized actions are blocked before they land. Every decision is logged as a CEE-compliant audit record.",
     icon: <FileText className="w-5 h-5" />,
     visual: <ReportVisual />,
   },
@@ -107,7 +107,7 @@ export function SolutionSection() {
             ))}
           </h2>
           <p className="text-balance text-slate-400 text-base leading-relaxed">
-            ARGOS is AI agent security infrastructure. It installs alongside any agent, intercepts every tool call, enforces policy, and logs every decision as a CEE audit record. Set it up and forget it exists.
+            Wyatt is AI agent security infrastructure. It installs alongside any agent, intercepts every tool call, enforces policy, and logs every decision as a CEE audit record. Set it up and forget it exists.
           </p>
         </div>
 

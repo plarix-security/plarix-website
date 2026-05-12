@@ -58,10 +58,18 @@ export function CtaSection() {
           setSubmitted(false);
         }, 3000);
       } else {
-        alert("Failed to submit. Please try again.");
+        const subject = encodeURIComponent("Plarix Early Access Application");
+        const body = encodeURIComponent(
+          `First Name: ${data.firstName}\nLast Name: ${data.lastName}\nCompany: ${data.company}\nEmail: ${data.email}\nAgent Stack: ${data.agentStack || "N/A"}\nRepo URL: ${data.repoUrl || "N/A"}`
+        );
+        window.location.href = `mailto:security@plarix.dev?subject=${subject}&body=${body}`;
       }
     } catch {
-      alert("Failed to submit. Please try again.");
+      const subject = encodeURIComponent("Plarix Early Access Application");
+      const body = encodeURIComponent(
+        `First Name: ${data.firstName}\nLast Name: ${data.lastName}\nCompany: ${data.company}\nEmail: ${data.email}\nAgent Stack: ${data.agentStack || "N/A"}\nRepo URL: ${data.repoUrl || "N/A"}`
+      );
+      window.location.href = `mailto:security@plarix.dev?subject=${subject}&body=${body}`;
     } finally {
       setSubmitting(false);
     }

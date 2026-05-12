@@ -3,13 +3,13 @@
 import { motion } from "framer-motion";
 
 const nodes = [
-  { id: "llm", label: "LLM Core", x: 50, y: 45, risk: "high" },
+  { id: "llm", label: "AI Agent", x: 50, y: 45, risk: "high" },
   { id: "rag", label: "RAG Store", x: 20, y: 25, risk: "critical" },
   { id: "api", label: "API Gateway", x: 80, y: 20, risk: "medium" },
-  { id: "tools", label: "Tool Agent", x: 75, y: 70, risk: "critical" },
+  { id: "tools", label: "Tool Exec", x: 75, y: 70, risk: "critical" },
   { id: "user", label: "User Input", x: 15, y: 65, risk: "low" },
   { id: "db", label: "Vector DB", x: 40, y: 15, risk: "medium" },
-  { id: "auth", label: "Auth Layer", x: 85, y: 48, risk: "low" },
+  { id: "auth", label: "ARGOS", x: 85, y: 48, risk: "low" },
   { id: "prompt", label: "Sys Prompt", x: 35, y: 75, risk: "high" },
 ];
 

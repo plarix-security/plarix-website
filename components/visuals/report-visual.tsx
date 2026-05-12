@@ -3,19 +3,17 @@
 import { motion } from "framer-motion";
 
 const findings = [
-  { name: "Prompt Injection", before: "critical", after: "fixed" },
-  { name: "RAG Data Leak", before: "critical", after: "fixed" },
-  { name: "Agent Authority", before: "high", after: "mitigated" },
-  { name: "PII Exposure", before: "high", after: "fixed" },
-  { name: "Tool Misuse", before: "medium", after: "mitigated" },
+  { name: "write_file()", before: "denied", after: "logged" },
+  { name: "execute_sql()", before: "denied", after: "logged" },
+  { name: "read_file()", before: "allowed", after: "logged" },
+  { name: "http_request()", before: "denied", after: "logged" },
+  { name: "send_email()", before: "allowed", after: "logged" },
 ];
 
 const severityColors: Record<string, { bg: string; text: string }> = {
-  critical: { bg: "rgba(239,68,68,0.12)", text: "#ef4444" },
-  high: { bg: "rgba(249,115,22,0.12)", text: "#f97316" },
-  medium: { bg: "rgba(234,179,8,0.12)", text: "#eab308" },
-  fixed: { bg: "rgba(34,197,94,0.10)", text: "#22c55e" },
-  mitigated: { bg: "rgba(59,130,246,0.10)", text: "#3b82f6" },
+  denied: { bg: "rgba(239,68,68,0.12)", text: "#ef4444" },
+  allowed: { bg: "rgba(34,197,94,0.10)", text: "#22c55e" },
+  logged: { bg: "rgba(59,130,246,0.10)", text: "#3b82f6" },
 };
 
 export function ReportVisual() {
@@ -24,19 +22,19 @@ export function ReportVisual() {
       <div className="flex flex-col h-full">
         {/* Header */}
         <div className="flex items-center justify-between px-3 py-2 border-b border-slate-800/40 bg-slate-900/30">
-          <span className="text-[10px] text-slate-400">EXECUTIVE SUMMARY</span>
+          <span className="text-[10px] text-slate-400">AUDIT LOG</span>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-            <span className="text-[9px] text-green-500/80">ALL REMEDIATED</span>
+            <span className="text-[9px] text-green-500/80">CEE COMPLIANT</span>
           </div>
         </div>
 
         {/* Stats row */}
         <div className="grid grid-cols-3 border-b border-slate-800/30">
           {[
-            { label: "Critical", value: "2", color: "#ef4444" },
-            { label: "High", value: "2", color: "#f97316" },
-            { label: "Medium", value: "1", color: "#eab308" },
+            { label: "Denied", value: "3", color: "#ef4444" },
+            { label: "Allowed", value: "2", color: "#22c55e" },
+            { label: "Logged", value: "5", color: "#3b82f6" },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -54,10 +52,10 @@ export function ReportVisual() {
         {/* Before / After table */}
         <div className="flex-1 overflow-hidden">
           <div className="grid grid-cols-[1fr_70px_16px_70px] items-center px-3 py-1.5 border-b border-slate-800/30 text-[8px] text-slate-500 uppercase tracking-wider">
-            <span>Finding</span>
-            <span className="text-center">Before</span>
+            <span>Tool Call</span>
+            <span className="text-center">Decision</span>
             <span />
-            <span className="text-center">After</span>
+            <span className="text-center">Status</span>
           </div>
 
           {findings.map((finding, i) => {
@@ -100,8 +98,8 @@ export function ReportVisual() {
 
         {/* Footer */}
         <div className="px-3 py-2 border-t border-slate-800/40 bg-slate-900/30 flex items-center justify-between">
-          <span className="text-[9px] text-slate-500">5 findings remediated</span>
-          <span className="text-[9px] text-green-500/70">100% resolved</span>
+          <span className="text-[9px] text-slate-500">5 decisions recorded</span>
+          <span className="text-[9px] text-green-500/70">100% logged</span>
         </div>
       </div>
     </div>

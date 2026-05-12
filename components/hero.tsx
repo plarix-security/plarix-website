@@ -38,7 +38,7 @@ export function Navbar() {
             alt="Plarix"
             width={400}
             height={100}
-            className="invert brightness-200"
+            className="invert brightness-[300]"
             style={{ height: "76px", width: "auto" }}
             priority
           />

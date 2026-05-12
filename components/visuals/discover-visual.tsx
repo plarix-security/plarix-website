@@ -3,25 +3,25 @@
 import { motion } from "framer-motion";
 
 const nodes = [
-  { id: "llm", label: "LLM Core", x: 50, y: 45, risk: "high" },
+  { id: "agent", label: "AI Agent", x: 50, y: 45, risk: "high" },
   { id: "rag", label: "RAG Store", x: 20, y: 25, risk: "critical" },
   { id: "api", label: "API Gateway", x: 80, y: 20, risk: "medium" },
-  { id: "tools", label: "Tool Agent", x: 75, y: 70, risk: "critical" },
+  { id: "tools", label: "Tool Exec", x: 75, y: 70, risk: "critical" },
   { id: "user", label: "User Input", x: 15, y: 65, risk: "low" },
-  { id: "db", label: "Vector DB", x: 40, y: 15, risk: "medium" },
-  { id: "auth", label: "Auth Layer", x: 85, y: 48, risk: "low" },
+  { id: "db", label: "Database", x: 40, y: 15, risk: "medium" },
+  { id: "fs", label: "File System", x: 85, y: 48, risk: "critical" },
   { id: "prompt", label: "Sys Prompt", x: 35, y: 75, risk: "high" },
 ];
 
 const edges = [
-  { from: "user", to: "llm" },
-  { from: "llm", to: "rag" },
-  { from: "llm", to: "tools" },
-  { from: "llm", to: "api" },
+  { from: "user", to: "agent" },
+  { from: "agent", to: "rag" },
+  { from: "agent", to: "tools" },
+  { from: "agent", to: "api" },
   { from: "rag", to: "db" },
-  { from: "api", to: "auth" },
+  { from: "api", to: "fs" },
   { from: "user", to: "prompt" },
-  { from: "prompt", to: "llm" },
+  { from: "prompt", to: "agent" },
   { from: "tools", to: "api" },
 ];
 
@@ -42,7 +42,6 @@ const riskGlow: Record<string, string> = {
 export function DiscoverVisual() {
   return (
     <div className="relative w-full h-full bg-slate-950 overflow-hidden">
-      {/* Subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
@@ -52,8 +51,11 @@ export function DiscoverVisual() {
         }}
       />
 
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-        {/* Edges */}
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid meet"
+      >
         {edges.map((edge, i) => {
           const from = nodes.find((n) => n.id === edge.from)!;
           const to = nodes.find((n) => n.id === edge.to)!;
@@ -73,7 +75,6 @@ export function DiscoverVisual() {
           );
         })}
 
-        {/* Animated pulses along edges */}
         {edges.map((edge, i) => {
           const from = nodes.find((n) => n.id === edge.from)!;
           const to = nodes.find((n) => n.id === edge.to)!;
@@ -95,7 +96,6 @@ export function DiscoverVisual() {
           );
         })}
 
-        {/* Nodes */}
         {nodes.map((node, i) => (
           <motion.g
             key={node.id}
@@ -112,12 +112,7 @@ export function DiscoverVisual() {
               strokeWidth="0.4"
               style={{ filter: `drop-shadow(${riskGlow[node.risk]})` }}
             />
-            <circle
-              cx={node.x}
-              cy={node.y}
-              r="1"
-              fill={riskColor[node.risk]}
-            />
+            <circle cx={node.x} cy={node.y} r="1" fill={riskColor[node.risk]} />
             <text
               x={node.x}
               y={node.y + 5.5}
@@ -132,19 +127,30 @@ export function DiscoverVisual() {
         ))}
       </svg>
 
-      {/* Legend */}
-      <div className="absolute bottom-3 left-3 flex items-center gap-3">
-        {["critical", "high", "medium", "low"].map((risk) => (
-          <div key={risk} className="flex items-center gap-1">
-            <div
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: riskColor[risk] }}
-            />
-            <span className="text-[9px] text-slate-500 capitalize font-mono">
-              {risk}
-            </span>
-          </div>
-        ))}
+      {/* No enforcement — the whole point of slide 1 */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute top-3 right-3 px-2 py-1 border border-red-500/30 bg-red-500/5"
+      >
+        <span className="text-[9px] text-red-400/80 font-mono">NO ENFORCEMENT LAYER</span>
+      </motion.div>
+
+      {/* Wyscan footnote */}
+      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          {["critical", "high", "medium", "low"].map((risk) => (
+            <div key={risk} className="flex items-center gap-1">
+              <div
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: riskColor[risk] }}
+              />
+              <span className="text-[9px] text-slate-500 capitalize font-mono">{risk}</span>
+            </div>
+          ))}
+        </div>
+        <span className="text-[8px] text-slate-700 font-mono">Wyscan finds these pre-production</span>
       </div>
     </div>
   );

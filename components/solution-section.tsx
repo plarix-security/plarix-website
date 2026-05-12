@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ShieldCheck, FileText, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -46,16 +46,43 @@ const features: Feature[] = [
 
 export function SolutionSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
+  const startTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % features.length);
     }, 8000);
-    return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveIndex(0);
+            startTimer();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(section);
+    startTimer();
+
+    return () => {
+      observer.disconnect();
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [startTimer]);
+
   return (
-    <section id="solution" className="w-full bg-slate-950 text-white py-24 flex flex-col items-center overflow-hidden border-b border-slate-800/30">
+    <section ref={sectionRef} id="solution" className="w-full bg-slate-950 text-white py-24 flex flex-col items-center overflow-hidden border-b border-slate-800/30">
       <div className="max-w-7xl w-full px-6 md:px-12 lg:px-16 gap-12 flex flex-col">
         {/* Header Section */}
         <div className="flex flex-col gap-4 max-w-[600px]">
@@ -126,7 +153,7 @@ export function SolutionSection() {
             {features.map((feature, index) => (
               <motion.button
                 key={feature.id}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => { setActiveIndex(index); startTimer(); }}
                 className={cn(
                   "group relative w-full text-left p-6 transition-all duration-300 outline-none",
                   activeIndex === index
@@ -152,18 +179,12 @@ export function SolutionSection() {
                       {feature.title}
                     </h3>
 
-                    <AnimatePresence>
-                      {activeIndex === index && (
-                        <motion.p
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="text-slate-400 text-base leading-relaxed overflow-hidden"
-                        >
-                          {feature.description}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
+                    <p className={cn(
+                      "text-slate-400 text-base leading-relaxed mt-1 transition-opacity duration-300",
+                      activeIndex === index ? "opacity-100" : "opacity-0 select-none"
+                    )}>
+                      {feature.description}
+                    </p>
                   </div>
 
                   <div className={cn(

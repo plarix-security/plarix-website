@@ -5,25 +5,22 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const EVENTS = [
   {
-    ts: "14:32:01",
-    fn: "write_file('/etc/cron.d/new-job')",
-    agent: "sales-assistant-prod",
-    rule: "fs.write.system",
-    verdict: "DENY" as const,
+    ts: "baseline",
+    fn: "invoice_matching",
+    cost: "€300,000/yr · 8,000 hrs",
+    verdict: "MEASURED" as const,
   },
   {
-    ts: "14:32:02",
-    fn: "execute_sql('SELECT * FROM users')",
-    agent: "data-analyst-v2",
-    rule: "db.read.authorized",
-    verdict: "ALLOW" as const,
+    ts: "model",
+    fn: "eeas.build(process, baseline)",
+    cost: "build + run cost vs baseline",
+    verdict: "DESIGNED" as const,
   },
   {
-    ts: "14:32:03",
-    fn: "http_request('exfil.attacker.com')",
-    agent: "research-bot",
-    rule: "net.external.unknown",
-    verdict: "DENY" as const,
+    ts: "result",
+    fn: "invoice_matching",
+    cost: "€120,000/yr · 2,500 hrs",
+    verdict: "DEPLOYED" as const,
   },
 ];
 
@@ -32,8 +29,6 @@ type Phase = "incoming" | "scanning" | "verdict";
 export function RedteamVisual() {
   const [eventIdx, setEventIdx] = useState(0);
   const [phase, setPhase] = useState<Phase>("incoming");
-  const [denied, setDenied] = useState(0);
-  const [allowed, setAllowed] = useState(0);
 
   useEffect(() => {
     const currentEvent = EVENTS[eventIdx];
@@ -49,8 +44,6 @@ export function RedteamVisual() {
 
     const t3 = setTimeout(() => {
       if (cancelled) return;
-      if (currentEvent.verdict === "DENY") setDenied((d) => d + 1);
-      else setAllowed((a) => a + 1);
       setEventIdx((i) => (i + 1) % EVENTS.length);
       setPhase("incoming");
     }, 3200);
@@ -64,7 +57,7 @@ export function RedteamVisual() {
   }, [eventIdx]);
 
   const ev = EVENTS[eventIdx];
-  const isAllow = ev.verdict === "ALLOW";
+  const isDeployed = ev.verdict === "DEPLOYED";
 
   return (
     <div className="relative w-full h-full bg-slate-950 overflow-hidden font-mono flex flex-col">
@@ -76,7 +69,7 @@ export function RedteamVisual() {
         }}
       />
 
-      {/* Amber glow when intercepting */}
+      {/* Amber glow when measuring */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{ opacity: phase === "scanning" ? 1 : 0 }}
@@ -96,13 +89,12 @@ export function RedteamVisual() {
             transition={{ duration: 1.5, repeat: Infinity }}
           />
           <span className="text-xs text-slate-300 tracking-wide">
-            WYATT · RUNTIME ENFORCEMENT · ACTIVE
+            EEAS · ECONOMICALLY-ENGINEERED · ACTIVE
           </span>
         </div>
-        <div className="flex items-center gap-3 text-[11px]">
-          <span className="text-red-400 tabular-nums">{denied} denied</span>
-          <span className="text-green-400 tabular-nums">{allowed} allowed</span>
-        </div>
+        <span className="text-green-400 text-[11px] tabular-nums">
+          baseline → build → result
+        </span>
       </div>
 
       {/* Event display */}
@@ -120,7 +112,7 @@ export function RedteamVisual() {
             <div className="border border-slate-800/50 bg-slate-900/40 px-3 py-2.5">
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider">
-                  Incoming
+                  Process
                 </span>
                 <span className="text-[10px] text-slate-700">·</span>
                 <span className="text-[10px] text-slate-500">{ev.ts}</span>
@@ -128,17 +120,17 @@ export function RedteamVisual() {
               <p className="text-sm text-white/90 leading-snug mb-1 truncate">
                 {ev.fn}
               </p>
-              <p className="text-[11px] text-slate-500">from: {ev.agent}</p>
+              <p className="text-[11px] text-slate-500">{ev.cost}</p>
             </div>
 
-            {/* Policy evaluation block */}
+            {/* Evaluation block */}
             <div className="border border-amber-500/20 bg-amber-500/[0.04] px-3 py-2.5">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] text-amber-500/80 uppercase tracking-wider">
-                  Evaluating Policy
+                  Measuring against baseline
                 </span>
                 <span className="text-[10px] text-slate-600">
-                  rule: {ev.rule}
+                  money · hours
                 </span>
               </div>
               <div className="h-1 bg-slate-800/50 overflow-hidden">
@@ -164,18 +156,18 @@ export function RedteamVisual() {
                   transition={{ duration: 0.2 }}
                   className="border px-3 py-2.5 flex items-center justify-between"
                   style={{
-                    borderColor: isAllow
+                    borderColor: isDeployed
                       ? "rgba(34,197,94,0.3)"
-                      : "rgba(239,68,68,0.3)",
-                    backgroundColor: isAllow
+                      : "rgba(245,158,11,0.3)",
+                    backgroundColor: isDeployed
                       ? "rgba(34,197,94,0.05)"
-                      : "rgba(239,68,68,0.05)",
+                      : "rgba(245,158,11,0.05)",
                   }}
                 >
                   <span className="text-sm text-slate-300">
-                    {isAllow
-                      ? "Action authorized — proceeding"
-                      : "Action blocked — unauthorized"}
+                    {isDeployed
+                      ? "Result logged against baseline"
+                      : "Stage complete — continuing"}
                   </span>
                   <motion.span
                     initial={{ scale: 0.8 }}
@@ -183,10 +175,10 @@ export function RedteamVisual() {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="text-sm font-bold px-2.5 py-1 shrink-0"
                     style={{
-                      color: isAllow ? "#22c55e" : "#ef4444",
-                      backgroundColor: isAllow
+                      color: isDeployed ? "#22c55e" : "#f59e0b",
+                      backgroundColor: isDeployed
                         ? "rgba(34,197,94,0.15)"
-                        : "rgba(239,68,68,0.15)",
+                        : "rgba(245,158,11,0.15)",
                     }}
                   >
                     {ev.verdict}
@@ -207,11 +199,11 @@ export function RedteamVisual() {
             transition={{ duration: 1.5, repeat: Infinity }}
           />
           <span className="text-[11px] text-slate-400">
-            Deny by default · CEE-compliant logging
+            Economics first · built around your process
           </span>
         </div>
         <span className="text-[11px] text-slate-600 font-mono">
-          every call · intercepted
+          money · hours
         </span>
       </div>
     </div>

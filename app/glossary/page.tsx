@@ -4,125 +4,125 @@ import { NavbarSubpage } from "@/components/navbar-subpage"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "AI Agent Security Glossary — Plarix",
+  title: "AI ROI Glossary — Plarix",
   description:
-    "Authoritative definitions for AFB01 Context Poisoning, AFB02 Model Boundary Compromise, AFB03 Instruction Hijack, AFB04 Unauthorized Action, CEE, Authorization Gap, Wyatt, and Wyscan — the AI agent security terms defined by Plarix.",
+    "Definitions for the terms Plarix uses to build and measure Economically-Engineered Agentic Systems: EEAS, the ROI Gap, Process Baseline, and the four-stage EEAS Method.",
   alternates: {
     canonical: "https://plarix.dev/glossary",
   },
   openGraph: {
-    title: "AI Agent Security Glossary — Plarix",
+    title: "AI ROI Glossary — Plarix",
     description:
-      "Authoritative definitions for AFB01-AFB04, CEE, Authorization Gap, Wyatt, and Wyscan — the core vocabulary of AI agent security.",
+      "Definitions for the terms Plarix uses to build and measure Economically-Engineered Agentic Systems: EEAS, the ROI Gap, Process Baseline, and the four-stage EEAS Method.",
     url: "https://plarix.dev/glossary",
     siteName: "Plarix",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Agent Security Glossary — Plarix",
+    title: "AI ROI Glossary — Plarix",
     description:
-      "Authoritative definitions for AFB01-AFB04, CEE, Authorization Gap, Wyatt, and Wyscan.",
+      "Definitions for the terms Plarix uses to build and measure Economically-Engineered Agentic Systems.",
   },
 }
 
 const terms = [
   {
-    id: "afb01",
-    code: "AFB01",
-    name: "Context Poisoning",
+    id: "eeas",
+    code: "EEAS",
+    name: "Economically-Engineered Agentic System",
     definition:
-      "A failure where the model ingests corrupted, forged, or manipulated context.",
+      "An AI agent system built and scoped around one specific business process, sized against a measured baseline rather than a general use case.",
     explanation:
-      "Context Poisoning occurs when untrusted external data enters the model's context window without sanitization. Hidden instructions embedded in retrieved documents, web pages, emails, or database records can override the model's intended behavior — causing it to exfiltrate secrets, ignore constraints, or act against user intent. The attack surface grows with every external source the agent is allowed to read.",
+      "An EEAS starts with a process, not a technology. Before any system gets built, Plarix measures how the process runs today in cost and hours. The system is then designed and priced against that baseline, and deployed into the tools the company already uses. The name is deliberate: engineered, not experimental, and economic, not just technical.",
     whyItMatters:
-      "An agent that reads from the web, a database, or a document store is one poisoned input away from full compromise.",
+      "A generic AI agent is built because the technology allows it. An EEAS is built because the baseline says it will pay for itself.",
   },
   {
-    id: "afb02",
-    code: "AFB02",
-    name: "Model Boundary Compromise",
-    definition:
-      "Integrity or confidentiality failures at the model's input/output boundary.",
-    explanation:
-      "Model Boundary Compromise describes failures where the interface between the model and the broader system is exploited. This includes system prompt extraction, model inversion, and manipulation of the input/output pipeline in ways that bypass intended constraints. It maps to OWASP LLM supply-chain and information-disclosure categories and is the subtlest of the four AFBs because the attack targets the boundary itself rather than data flowing through it.",
-    whyItMatters:
-      "The model boundary is where your system's intent meets raw model behavior — any failure there undermines every downstream control you have built.",
-  },
-  {
-    id: "afb03",
-    code: "AFB03",
-    name: "Instruction Hijack",
-    definition:
-      "A failure where model output becomes unsafe instructions executed by the agent layer.",
-    explanation:
-      "Instruction Hijack occurs when an attacker — via injected content, adversarial inputs, or chained prompt manipulation — causes the model to produce output that the agent executes as legitimate instructions. Unlike direct prompt injection (which targets the model), Instruction Hijack specifically exploits the trust the agent layer places in model output. The result: the agent acts on attacker-controlled commands while believing they are genuine model decisions.",
-    whyItMatters:
-      "Your agent treats model output as ground truth. If that output has been hijacked, your agent becomes an execution vector for arbitrary attacker instructions.",
-  },
-  {
-    id: "afb04",
-    code: "AFB04",
-    name: "Unauthorized Action",
-    definition:
-      "A failure where the agent attempts or performs an action outside its authorized policy.",
-    explanation:
-      "Unauthorized Action is the most operationally visible AFB. It occurs when no policy layer exists — or is bypassed — between the model's decision to act and actual execution. An agent with access to file deletion, email sending, or database writes can perform any of those operations if there is no enforcement gate. Wyscan detects AFB04 exposures statically by tracing reachable call paths from tool registrations. Wyatt prevents them at runtime by intercepting every tool call before execution.",
-    whyItMatters:
-      "One unauthorized tool call can delete data, send communications, or exfiltrate secrets. System prompts are suggestions — not enforcement.",
-  },
-  {
-    id: "cee",
-    code: "CEE",
-    name: "Canonical Execution Event",
-    definition:
-      "A four-field normalization schema for evaluating and recording every agent action.",
-    explanation:
-      "Introduced in AFB spec v2.0 (March 20, 2026), the Canonical Execution Event defines the minimum information required to evaluate policy and produce an audit record for any agent action: Operation (what is being done), Principal (who or what is requesting it), State Delta (what will change in the world), and Policy Basis (the rule that permits or denies it). Every tool call Wyatt intercepts is normalized into a CEE before policy evaluation occurs.",
-    whyItMatters:
-      "You cannot enforce what you cannot describe. The CEE gives every agent action a consistent, auditable shape — the foundation of any real enforcement layer.",
-  },
-  {
-    id: "authorization-gap",
+    id: "roi-gap",
     code: null,
-    name: "Authorization Gap",
+    name: "The ROI Gap",
     definition:
-      "The space between what a system prompt instructs and what runtime actually enforces.",
+      "The space between an AI pilot a company has built and the result it can prove.",
     explanation:
-      "The Authorization Gap is the fundamental vulnerability underlying AFB04. Every major agent framework ships without a runtime enforcement layer — system prompts describe desired behavior but cannot prevent an agent from executing any tool it has access to. The gap between \"the model is told not to delete files\" and \"the model cannot delete files\" is the Authorization Gap. It is not a configuration problem. It is an architectural absence. Wyatt closes it.",
+      "Most companies can point to an AI pilot. Few can say, in euros and hours, what it changed. That gap between activity and proof is the ROI gap. It's not a technology problem. It's the result of building before measuring. Plarix closes it by measuring the baseline before any build starts, and reporting the result against that baseline after.",
     whyItMatters:
-      "Every AI agent in production today has an Authorization Gap. The question is whether an attacker — or an unintended model decision — will ever fall into it.",
+      "A pilot that can't be priced against a baseline can't survive a budget review, no matter how well it works in a demo.",
   },
   {
-    id: "wyatt",
+    id: "process-baseline",
     code: null,
-    name: "Wyatt",
+    name: "Process Baseline",
     definition:
-      "The runtime enforcement layer that intercepts every agent tool call before execution.",
+      "The measured cost and hours a process consumes before any system is built.",
     explanation:
-      "Wyatt is Plarix's core product: a daemon that sits in the execution path of any AI agent and intercepts tool calls before they reach the underlying system. It evaluates each call against a declarative policy, normalizes it as a Canonical Execution Event, and either allows or denies it — logging every decision for audit. Wyatt is framework-agnostic and integrates with LangChain, CrewAI, custom agents, and MCP without requiring code rewrites. Deny by default. Always.",
+      "The baseline is the number everything else gets compared against: current cost, current hours, volume, and error rate, measured directly rather than estimated. Every EEAS is priced and evaluated against its own baseline. Without one, there's no way to know whether a system saved anything.",
     whyItMatters:
-      "Wyatt is the only way to move from \"agents are told what to do\" to \"agents are prevented from doing what they are not allowed to do.\"",
+      "You cannot report a savings number if you never measured what the process cost before you started.",
   },
   {
-    id: "wyscan",
-    code: null,
-    name: "Wyscan",
+    id: "eeas-01-diagnose",
+    code: "EEAS-01 · Diagnose",
+    name: "Diagnose",
     definition:
-      "A static analysis scanner that detects AFB04 exposures in agent codebases before production.",
+      "The first stage of the EEAS Method: measuring how a process runs today.",
     explanation:
-      "Wyscan parses Python codebases with tree-sitter, resolves tool registrations semantically, and traces reachable call paths to identify dangerous operations — shell execution, file deletion, database writes, HTTP mutations — that lack authorization gates. It runs as a CLI or as a GitHub App on every pull request, classifying findings as critical, warning, or info. Wyscan covers AFB04 only; it does not detect AFB01-AFB03. It is the static complement to Wyatt's runtime enforcement.",
+      "Diagnose is where the process baseline gets built. Plarix observes the process directly, timing and pricing each step, mapping volume and error rate. This stage produces the baseline every later result is measured against.",
     whyItMatters:
-      "Most agent security issues are visible in the code before deployment. Wyscan makes them findable before they reach production.",
+      "Skip this stage and there's no way to prove, later, what the system actually changed.",
+  },
+  {
+    id: "eeas-02-design",
+    code: "EEAS-02 · Design",
+    name: "Design",
+    definition:
+      "The second stage: modeling whether automating the process is worth the cost.",
+    explanation:
+      "Design takes the baseline from Diagnose and models what an EEAS would cost to build and run against it. If the projected savings don't clear the cost of building and running the system, Plarix says so before any build starts.",
+    whyItMatters:
+      "Most AI projects skip this stage entirely and find out whether it was worth it only after the money is spent.",
+  },
+  {
+    id: "eeas-03-deploy",
+    code: "EEAS-03 · Deploy",
+    name: "Deploy",
+    definition:
+      "The third stage: building and integrating the system into the process it was designed for.",
+    explanation:
+      "Deploy is the build itself: an agentic system scoped to the one process measured in Diagnose, integrated into the company's existing tools rather than a new platform layered on top.",
+    whyItMatters:
+      "A system built for a specific, measured process does the job it was priced to do. A general assistant dropped into a company rarely does.",
+  },
+  {
+    id: "eeas-04-measure",
+    code: "EEAS-04 · Measure",
+    name: "Measure",
+    definition:
+      "The fourth stage: comparing actual results against the original baseline.",
+    explanation:
+      "Once the EEAS is live, Measure tracks real results, money saved and hours returned, against the baseline from Diagnose, on a set schedule. This is what turns a build into a provable result.",
+    whyItMatters:
+      "A system that isn't measured against its baseline is just a pilot with better branding.",
+  },
+  {
+    id: "scorecard",
+    code: null,
+    name: "The Scorecard",
+    definition:
+      "The running record comparing a process's baseline against its actual results after an EEAS goes live.",
+    explanation:
+      "The scorecard is Plarix's reporting standard: baseline, current result, and the delta between them, in both money and hours, updated on a schedule. It's built to be handed directly to a budget review.",
+    whyItMatters:
+      "A savings claim without a scorecard behind it is a guess. A scorecard is the difference between \"we think this helped\" and \"this saved €180,000 and 5,500 hours, and here's the baseline it's measured against.\"",
   },
 ]
 
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "DefinedTermSet",
-  name: "Plarix AI Agent Security Glossary",
+  name: "Plarix AI ROI Glossary",
   description:
-    "Authoritative definitions for the core vocabulary of AI agent security, including AFB01-AFB04, CEE, Authorization Gap, Wyatt, and Wyscan.",
+    "Definitions for the terms Plarix uses to build and measure Economically-Engineered Agentic Systems.",
   url: "https://plarix.dev/glossary",
   hasDefinedTerm: terms.map((term) => ({
     "@type": "DefinedTerm",
@@ -168,8 +168,7 @@ export default function GlossaryPage() {
                 Glossary
               </h1>
               <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-2xl">
-                The authoritative definitions for terms Plarix has introduced into the AI agent
-                security vocabulary. Each entry links to its source specification.
+                The terms Plarix uses to scope, build, and measure an AI system against a real process. Each entry links back to where it's used.
               </p>
             </div>
           </div>
@@ -234,16 +233,7 @@ export default function GlossaryPage() {
             {/* Bottom CTA */}
             <div className="mt-8 pt-12 border-t border-slate-800/30 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
               <p className="text-sm text-slate-500">
-                Definitions derived from the{" "}
-                <a
-                  href="https://github.com/plarix-security/afb-spec"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-white transition-colors underline underline-offset-2"
-                >
-                  AFB Taxonomy Specification
-                </a>{" "}
-                (CC0-1.0).
+                Definitions maintained by the Plarix team.
               </p>
               <Link
                 href="/blog"

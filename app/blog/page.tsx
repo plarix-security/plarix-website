@@ -6,14 +6,14 @@ import { Footer } from "@/components/footer"
 export const metadata: Metadata = {
   title: "Blog — Plarix",
   description:
-    "Security research and technical writing on AI agent failure modes from the team building Wyatt and the AFB taxonomy.",
+    "Writing on how to scope, price, and measure AI systems against real business processes, from the team building Plarix.",
   alternates: {
     canonical: "https://plarix.dev/blog",
   },
   openGraph: {
     title: "Blog — Plarix",
     description:
-      "Security research and technical writing on AI agent failure modes from the team building Wyatt and the AFB taxonomy.",
+      "Writing on how to scope, price, and measure AI systems against real business processes, from the team building Plarix.",
     url: "https://plarix.dev/blog",
     siteName: "Plarix",
     type: "website",
@@ -22,18 +22,18 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog — Plarix",
     description:
-      "Security research and technical writing on AI agent failure modes from the team building Wyatt and the AFB taxonomy.",
+      "Writing on how to scope, price, and measure AI systems against real business processes.",
   },
 }
 
 const posts = [
   {
-    slug: "what-is-an-agent-failure-boundary",
-    title: "What is an Agent Failure Boundary?",
-    date: "April 5, 2026",
-    dateISO: "2026-04-05",
+    slug: "what-is-an-economically-engineered-agentic-system",
+    title: "What is an Economically-Engineered Agentic System?",
+    date: "August 19, 2026",
+    dateISO: "2026-08-19",
     excerpt:
-      "AFB01 through AFB04 define the four distinct ways an AI agent system can fail — at the context input, at the model boundary, at the model output, and at execution. Here is what each one means and why the distinction matters for anyone building agents in production.",
+      "EEAS-01 through EEAS-04 define the four stages that turn an AI idea into a measured result: diagnose, design, deploy, and measure. Here is what each stage means and why skipping one is how AI pilots turn into demos nobody can price.",
   },
 ]
 
@@ -67,8 +67,7 @@ export default function BlogPage() {
                 Blog
               </h1>
               <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-2xl">
-                Security research and technical writing on AI agent failure modes, the AFB
-                taxonomy, and the infrastructure for keeping agents under human control.
+                Notes on scoping AI to a real process, pricing it against a baseline, and proving what it actually saved.
               </p>
             </div>
           </div>

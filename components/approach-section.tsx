@@ -20,31 +20,31 @@ interface Feature {
 const features: Feature[] = [
   {
     id: 1,
-    title: "1. Agent Calls Tool",
+    title: "1. Process runs",
     description:
-      "Your agent attempts to execute a tool call — file access, API request, database write, external service, or any real-world operation.",
+      "Your team runs the process the way it runs today. We watch it, time it, and price it exactly as it is. No changes yet.",
     icon: <Search className="w-5 h-5" />,
     visual: <DiscoverVisual />,
   },
   {
     id: 2,
-    title: "2. Wyatt Intercepts",
+    title: "2. Plarix builds the EEAS",
     description:
-      "Before execution, Wyatt intercepts the call at the runtime layer and evaluates it against your defined AI agent policy. Every action. Every time. No exceptions.",
+      "We design and build an Economically-Engineered Agentic System scoped to that one process. Built for the cost structure we just measured, not a generic bot.",
     icon: <ShieldCheck className="w-5 h-5" />,
     visual: <RedteamVisual />,
   },
   {
     id: 3,
-    title: "3. Allow or Deny — Logged",
+    title: "3. Money and time, logged",
     description:
-      "Wyatt enforces the policy decision. Authorized actions proceed. Unauthorized actions are blocked before they land. Every decision is logged as a CEE-compliant audit record.",
+      "Every result gets compared against the baseline: euros saved and hours returned. If the number doesn't hold up, we say so.",
     icon: <FileText className="w-5 h-5" />,
     visual: <ReportVisual />,
   },
 ];
 
-export function SolutionSection() {
+export function ApproachSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -82,18 +82,18 @@ export function SolutionSection() {
   }, [startTimer]);
 
   return (
-    <section ref={sectionRef} id="solution" className="w-full bg-slate-950 text-white py-24 flex flex-col items-center overflow-hidden border-b border-slate-800/30">
+    <section ref={sectionRef} id="approach" className="w-full bg-slate-950 text-white py-24 flex flex-col items-center overflow-hidden border-b border-slate-800/30">
       <div className="max-w-7xl w-full px-6 md:px-12 lg:px-16 gap-12 flex flex-col">
         {/* Header Section */}
         <div className="flex flex-col gap-4 max-w-[600px]">
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
             <div className="w-2.5 h-2.5 bg-amber-500" />
             <span className="text-sm font-medium text-slate-500 tracking-wide">
-              The Solution
+              Our approach
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal leading-[1.1] tracking-tight text-white">
-            {"AI Agent Security at the Execution Layer".split(" ").map((word, i) => (
+            {"AI, engineered for the economics of your business".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -107,7 +107,7 @@ export function SolutionSection() {
             ))}
           </h2>
           <p className="text-balance text-slate-400 text-base leading-relaxed">
-            Wyatt is AI agent security infrastructure. It installs alongside any agent, intercepts every tool call, enforces policy, and logs every decision as a CEE audit record. Set it up and forget it exists.
+            Plarix is a process-first AI build. We measure how a task runs today, in money and hours, before writing a line of the system. Then we build, deploy, and report the delta.
           </p>
         </div>
 
@@ -207,7 +207,7 @@ export function SolutionSection() {
             onClick={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
             className="px-8 py-4 bg-amber-500 text-slate-950 font-medium flex items-center gap-2 hover:bg-amber-400 transition-colors"
           >
-            Apply for Early Access
+            Get a Free Process Audit
             <ChevronRight className="w-4 h-4" />
           </motion.button>
         </div>

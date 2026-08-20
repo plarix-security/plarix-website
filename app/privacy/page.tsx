@@ -40,7 +40,7 @@ export default function PrivacyPage() {
                 Privacy Policy
               </h1>
               <p className="text-slate-500 text-sm">
-                Effective date: April 5, 2026
+                Effective date: August 19, 2026
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
               <div className="flex flex-col gap-3">
                 <h2 className="text-lg font-medium text-white">What We Collect</h2>
                 <p className="text-base text-slate-400 leading-relaxed">
-                  When you submit the early access or contact form on plarix.dev, we collect:
+                  When you submit the process audit or contact form on plarix.dev, we collect:
                 </p>
                 <ul className="flex flex-col gap-2 mt-1">
                   {["First and last name", "Company name", "Business email address"].map((item) => (
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
                 <h2 className="text-lg font-medium text-white">How We Use It</h2>
                 <p className="text-base text-slate-400 leading-relaxed">
                   Form submissions are used solely to respond to your inquiry and determine
-                  whether Plarix's products are a fit for your situation. We will email you
+                  whether Plarix's services are a fit for your situation. We will email you
                   once in response. We will not add you to a mailing list, share your details
                   with third parties, or contact you repeatedly without your consent.
                 </p>
@@ -118,10 +118,10 @@ export default function PrivacyPage() {
                   business relationship. If you would like your information deleted, email us
                   at{" "}
                   <a
-                    href="mailto:security@plarix.dev"
+                    href="mailto:hello@plarix.dev"
                     className="text-amber-500 hover:text-amber-400 transition-colors underline underline-offset-2"
                   >
-                    security@plarix.dev
+                    hello@plarix.dev
                   </a>{" "}
                   and we will remove it within 30 days.
                 </p>
@@ -142,10 +142,10 @@ export default function PrivacyPage() {
                   You have the right to access, correct, or delete any personal information we
                   hold about you. To exercise any of these rights, contact us at{" "}
                   <a
-                    href="mailto:security@plarix.dev"
+                    href="mailto:hello@plarix.dev"
                     className="text-amber-500 hover:text-amber-400 transition-colors underline underline-offset-2"
                   >
-                    security@plarix.dev
+                    hello@plarix.dev
                   </a>
                   .
                 </p>
@@ -165,10 +165,10 @@ export default function PrivacyPage() {
                 <p className="text-base text-slate-400 leading-relaxed">
                   Plarix<br />
                   <a
-                    href="mailto:security@plarix.dev"
+                    href="mailto:hello@plarix.dev"
                     className="text-amber-500 hover:text-amber-400 transition-colors underline underline-offset-2"
                   >
-                    security@plarix.dev
+                    hello@plarix.dev
                   </a>
                 </p>
               </div>

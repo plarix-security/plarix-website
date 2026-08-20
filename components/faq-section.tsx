@@ -14,45 +14,45 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     id: "1",
-    question: "Does Wyatt work with my existing agent framework?",
+    question: "Is this a consulting engagement or a piece of software?",
     answer:
-      "Yes. Wyatt is framework-agnostic — it integrates at the tool call layer regardless of what built the agent. LangChain, CrewAI, LlamaIndex, AutoGen, MCP, or a fully custom stack. No rewrites. One integration point.",
+      "Today, it's a build: our team maps your process, builds the EEAS around it, and hands over a working system plus a savings record. The long-term plan is a platform that does this for many processes without a project team behind every one. Early customers get the build now.",
   },
   {
     id: "2",
-    question: "Do I need to rewrite my agents to add AI agent security?",
+    question: "Do we need to already be using AI somewhere?",
     answer:
-      "No. Wyatt sits alongside your existing stack as a runtime daemon. Integration is one step. No framework changes. No code rewrites. Your agent runs exactly as before — with enforcement now sitting in front of every tool call.",
+      "No. Most of the processes worth automating haven't been touched yet. We start from how the process runs today, not from whatever AI tooling you already have in place.",
   },
   {
     id: "3",
-    question: "What is the AFB Scanner (Wyscan)?",
+    question: "How do you calculate the savings number?",
     answer:
-      "A free GitHub App that scans your agent codebase on every pull request and reports security exposures classified by Agent Failure Boundary type. It catches unauthorized action surfaces — AFB04 violations — before they reach production. Zero cost, always.",
+      "We measure the process directly before we build anything: hours per task, cost per task, volume, error rate. That becomes the baseline. After the EEAS is live, we compare actual results against that same baseline, on a set schedule.",
   },
   {
     id: "4",
-    question: "How does Wyatt enforce AI agent policy?",
+    question: "What if the process isn't actually worth automating?",
     answer:
-      "Policies are simple declarative definitions of what each agent is permitted to do — which tools, which resources, which operations. You define them once. Wyatt enforces them on every tool call, forever. Unauthorized actions are blocked before they execute.",
+      "Then we tell you before you pay for a build. The economic model runs before the build does. If the number doesn't clear, the honest answer is not to build it.",
   },
   {
     id: "5",
-    question: "Is Wyatt open source?",
+    question: "Will this replace our existing systems?",
     answer:
-      "The static analysis tool (Wyscan) and framework adapters are open source under Apache 2.0. The runtime enforcement engine (Wyatt) and the Virgil attestation layer are proprietary. The CEE standard is open (CC0).",
+      "No. The EEAS runs alongside what you already use: your CRM, your ERP, your ticketing system, your spreadsheets. There's no migration project before you see a result.",
   },
   {
     id: "6",
-    question: "How does this help with enterprise AI security reviews?",
+    question: "How long does one engagement take?",
     answer:
-      "Enterprise buyers ask: how do you guarantee the agent stays in bounds? Wyatt gives you a structural answer — deny-by-default policy enforcement — plus tamper-evident CEE audit logs that map directly to SOC 2 and security questionnaire requirements.",
+      "The process audit typically takes about a week. The build depends on the process, but most engagements are scoped to a single, well-defined workflow rather than a company-wide transformation, which keeps the timeline short.",
   },
   {
     id: "7",
-    question: "How is this different from LLM guardrails or prompt injection filters?",
+    question: "How is this different from a general AI consultancy?",
     answer:
-      "Guardrails filter model text. Prompt injection filters scan inputs. Neither stops an authorized tool from being called in an unauthorized context. Wyatt operates at the execution layer — before the action lands in the real world — not at the text layer.",
+      "Most AI consultancies start with the technology and ask where to apply it. We start with the process, measure what it costs, and only build when the economics work. The deliverable isn't a strategy deck. It's a working system and a number.",
   },
 ];
 
@@ -80,7 +80,7 @@ export function FaqSection() {
             </div>
 
             <h2 className="text-balance text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.1]">
-              {"Common Questions".split(" ").map((word, i) => (
+              {"Common questions".split(" ").map((word, i) => (
                 <motion.span
                   key={i}
                   initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -95,12 +95,12 @@ export function FaqSection() {
             </h2>
 
             <p className="text-balance text-base md:text-lg text-slate-400 leading-relaxed max-w-md">
-              How Wyatt enforces AI agent security at the execution layer — and why it works where guardrails, monitoring, and system prompts do not.
+              Get quick answers about how Plarix scopes, builds, and measures an AI system against a real business process.
             </p>
 
             <p className="text-sm text-slate-500">
               Cannot find what you are looking for?{" "}
-              <a href="mailto:security@plarix.dev" className="text-amber-500 hover:text-amber-400 transition-colors">
+              <a href="mailto:hello@plarix.dev" className="text-amber-500 hover:text-amber-400 transition-colors">
                 Reach out directly.
               </a>
             </p>

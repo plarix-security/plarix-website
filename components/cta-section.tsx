@@ -4,20 +4,8 @@ import React, { useEffect } from "react"
 
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
-import { X } from "lucide-react";
-
-const AGENT_STACKS = [
-  "LangChain",
-  "CrewAI",
-  "LlamaIndex",
-  "MCP (Model Context Protocol)",
-  "AutoGen",
-  "LangGraph",
-  "Custom / Internal",
-  "Other",
-];
+import { X, TrendingUp } from "lucide-react";
 
 export function CtaSection() {
   const [formOpen, setFormOpen] = useState(false);
@@ -40,8 +28,7 @@ export function CtaSection() {
       lastName: formData.get("lastName") as string,
       company: formData.get("company") as string,
       email: formData.get("email") as string,
-      agentStack: formData.get("agentStack") as string,
-      repoUrl: formData.get("repoUrl") as string,
+      process: formData.get("process") as string,
     };
 
     try {
@@ -58,18 +45,18 @@ export function CtaSection() {
           setSubmitted(false);
         }, 3000);
       } else {
-        const subject = encodeURIComponent("Plarix Early Access Application");
+        const subject = encodeURIComponent("Plarix Free Process Audit Request");
         const body = encodeURIComponent(
-          `First Name: ${data.firstName}\nLast Name: ${data.lastName}\nCompany: ${data.company}\nEmail: ${data.email}\nAgent Stack: ${data.agentStack || "N/A"}\nRepo URL: ${data.repoUrl || "N/A"}`
+          `First Name: ${data.firstName}\nLast Name: ${data.lastName}\nCompany: ${data.company}\nEmail: ${data.email}\nProcess: ${data.process || "N/A"}`
         );
-        window.location.href = `mailto:security@plarix.dev?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:hello@plarix.dev?subject=${subject}&body=${body}`;
       }
     } catch {
-      const subject = encodeURIComponent("Plarix Early Access Application");
+      const subject = encodeURIComponent("Plarix Free Process Audit Request");
       const body = encodeURIComponent(
-        `First Name: ${data.firstName}\nLast Name: ${data.lastName}\nCompany: ${data.company}\nEmail: ${data.email}\nAgent Stack: ${data.agentStack || "N/A"}\nRepo URL: ${data.repoUrl || "N/A"}`
+        `First Name: ${data.firstName}\nLast Name: ${data.lastName}\nCompany: ${data.company}\nEmail: ${data.email}\nProcess: ${data.process || "N/A"}`
       );
-      window.location.href = `mailto:security@plarix.dev?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:hello@plarix.dev?subject=${subject}&body=${body}`;
     } finally {
       setSubmitting(false);
     }
@@ -79,16 +66,12 @@ export function CtaSection() {
     <section id="cta" className="relative w-full overflow-hidden bg-slate-100">
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16 py-14 md:py-20 flex justify-center">
         <div className="max-w-2xl flex flex-col items-center text-center gap-6">
-          <Image
-            src="/images/plarix-shield.png"
-            alt="Plarix Shield"
-            width={96}
-            height={96}
-            className="w-24 h-24 object-contain"
-          />
+          <div className="w-16 h-16 flex items-center justify-center bg-amber-500/15 border border-amber-500/30">
+            <TrendingUp className="w-8 h-8 text-amber-600" />
+          </div>
 
           <h2 className="text-balance text-4xl font-normal tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-            {"Your Agents Are Running Right Now".split(" ").map((word, i) => (
+            {"Your most expensive process is running right now".split(" ").map((word, i) => (
               <motion.span
                 key={`cta-${i}`}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -103,11 +86,7 @@ export function CtaSection() {
           </h2>
 
           <p className="text-balance max-w-xl text-base leading-relaxed text-slate-500 md:text-lg">
-            Nothing is enforcing what they can and cannot do. Wyatt changes that — runtime enforcement at the execution layer, deny by default, always on.
-          </p>
-
-          <p className="text-sm text-slate-400 max-w-md">
-            We are working directly with a small number of design partner teams — AI B2B SaaS companies with agents in production. Apply below and we will reach out within 24 hours.
+            Nobody is measuring what it costs or what fixing it would be worth. Plarix is taking on a small number of design partner companies for process audits. Apply below and we'll get back to you.
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center w-full">
@@ -116,17 +95,15 @@ export function CtaSection() {
               className="bg-slate-950 px-8 text-white hover:bg-slate-800 font-medium"
               onClick={() => setFormOpen(true)}
             >
-              Apply for Early Access
+              Get a Free Process Audit
             </Button>
             <span className="text-sm text-slate-400">
-              Or install Wyscan free:{" "}
+              Or read how an EEAS build works{" "}
               <a
-                href="https://github.com/apps/afb-scanner"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/blog/what-is-an-economically-engineered-agentic-system"
                 className="underline underline-offset-2 hover:text-slate-600 transition-colors"
               >
-                GitHub App
+                →
               </a>
             </span>
           </div>
@@ -163,36 +140,28 @@ export function CtaSection() {
 
                 {submitted ? (
                   <div className="flex flex-col items-center gap-4 py-8">
-                    <Image
-                      src="/images/plarix-shield.png"
-                      alt="Plarix"
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 object-contain invert brightness-200"
-                    />
+                    <div className="w-12 h-12 flex items-center justify-center bg-amber-500/15 border border-amber-500/30">
+                      <TrendingUp className="w-6 h-6 text-amber-500" />
+                    </div>
                     <p className="text-white text-lg font-medium">
-                      Application received.
+                      Request received.
                     </p>
                     <p className="text-slate-400 text-sm text-center">
-                      We will reach out within 24 hours.
+                      We will reach out to schedule your free process audit.
                     </p>
                   </div>
                 ) : (
                   <>
                     <div className="flex items-start gap-3 mb-2">
-                      <Image
-                        src="/images/plarix-shield.png"
-                        alt="Plarix"
-                        width={40}
-                        height={40}
-                        className="w-10 h-10 object-contain invert brightness-200 shrink-0 mt-0.5"
-                      />
+                      <div className="w-10 h-10 flex items-center justify-center bg-amber-500/15 border border-amber-500/30 shrink-0 mt-0.5">
+                        <TrendingUp className="w-5 h-5 text-amber-500" />
+                      </div>
                       <div>
                         <h3 className="text-white text-lg font-medium">
-                          Apply for Early Access
+                          Get a Free Process Audit
                         </h3>
                         <p className="text-slate-500 text-sm mt-1">
-                          We are selecting design partner teams. Tell us about your stack and we will reach out within 24 hours.
+                          Tell us about one process that costs too much. We'll estimate what it could save.
                         </p>
                       </div>
                     </div>
@@ -236,7 +205,7 @@ export function CtaSection() {
                           type="text"
                           name="company"
                           required
-                          placeholder="Acme AI"
+                          placeholder="Acme GmbH"
                           className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 placeholder:text-slate-600 focus:outline-none focus:border-slate-600 transition-colors"
                         />
                       </div>
@@ -256,34 +225,12 @@ export function CtaSection() {
 
                       <div className="flex flex-col gap-1.5">
                         <label className="text-xs text-slate-400">
-                          Agent Stack
-                        </label>
-                        <select
-                          name="agentStack"
-                          required
-                          defaultValue=""
-                          className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 focus:outline-none focus:border-slate-600 transition-colors appearance-none"
-                        >
-                          <option value="" disabled className="text-slate-600">
-                            Select your framework
-                          </option>
-                          {AGENT_STACKS.map((stack) => (
-                            <option key={stack} value={stack}>
-                              {stack}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div className="flex flex-col gap-1.5">
-                        <label className="text-xs text-slate-400">
-                          GitHub Repo{" "}
-                          <span className="text-slate-600">(optional)</span>
+                          Which process would you like audited?
                         </label>
                         <input
-                          type="url"
-                          name="repoUrl"
-                          placeholder="https://github.com/your-org/your-agent"
+                          type="text"
+                          name="process"
+                          placeholder="e.g. invoice processing, claims handling"
                           className="bg-slate-900 border border-slate-800 text-white text-sm px-3 py-2.5 placeholder:text-slate-600 focus:outline-none focus:border-slate-600 transition-colors"
                         />
                       </div>
@@ -294,11 +241,11 @@ export function CtaSection() {
                         disabled={submitting}
                         className="mt-2 w-full bg-amber-500 text-slate-950 hover:bg-amber-400 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {submitting ? "Submitting..." : "Submit Application"}
+                        {submitting ? "Submitting..." : "Request Free Audit"}
                       </Button>
 
                       <p className="text-xs text-slate-500 text-center">
-                        No spam. We respond within 24 hours.
+                        No spam. We respond to every request.
                       </p>
                     </form>
                   </>

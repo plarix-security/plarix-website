@@ -1,29 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bot, ShieldCheck, Building2 } from "lucide-react";
+import { Workflow, PieChart, Lightbulb } from "lucide-react";
 
 const audiences = [
   {
-    icon: <Bot className="w-6 h-6 text-amber-500" />,
-    title: "AI B2B SaaS teams shipping agents to enterprise",
+    icon: <Workflow className="w-6 h-6 text-amber-500" />,
+    title: "Operations and shared-services leaders",
     description:
-      "Your agent is in production. It has tool access. Enterprise buyers are asking how you control what it can do. Wyatt answers that question with a tamper-evident audit trail and deterministic enforcement — not a policy document.",
-    concerns: ["Enterprise security questionnaires", "Audit trails for every action", "Deny-by-default enforcement", "CEE-compliant logs"],
+      "You run a process that hasn't changed in years: invoice processing, claims handling, order management, back-office reconciliation. It's expensive, everyone knows it, and nobody has put a number on fixing it.",
+    concerns: ["Process cost baseline", "Built around existing systems", "No new platform to learn", "Money and time reporting"],
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-amber-500" />,
-    title: "Teams moving agentic products upmarket",
+    icon: <PieChart className="w-6 h-6 text-amber-500" />,
+    title: "Finance and operations teams evaluating AI spend",
     description:
-      "Your early customers loved the agent. Now enterprise is asking for SOC 2 evidence, incident response plans, and proof that your agent cannot go rogue. Wyatt gives you the infrastructure to pass that due diligence.",
-    concerns: ["SOC 2 audit readiness", "Incident response evidence", "Action authorization proof", "Security review support"],
+      "You've approved a few AI pilots already. Some are running, most aren't clearly worth what they cost. You need a way to compare an idea against a real number before the next budget cycle.",
+    concerns: ["Break-even calculated up front", "Independent of vendor hype", "Clear go/no-go before build", "Budget-review-ready reporting"],
   },
   {
-    icon: <Building2 className="w-6 h-6 text-amber-500" />,
-    title: "Engineers building agents that touch real data",
+    icon: <Lightbulb className="w-6 h-6 text-amber-500" />,
+    title: "Founders and operators who tried AI and got a demo, not a result",
     description:
-      "Database access. API calls. File writes. Customer records. Your agent has the keys. One prompt injection, one malformed input, one instruction hijack — and it uses them wrong. Wyatt enforces the boundary at the execution layer, every time.",
-    concerns: ["Tool call enforcement", "Prompt injection defense", "Data access control", "Multi-tenant isolation"],
+      "Your team built a chatbot or an internal tool. It's clever. Nobody can say what it saved. You want the next one to actually move a number.",
+    concerns: ["Scoped to one measurable process", "Real baseline, not a guess", "Delivered as a working system", "Result reported in euros and hours"],
   },
 ];
 
@@ -53,11 +53,11 @@ export function WhoWeServeSection() {
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
             <div className="w-2.5 h-2.5 bg-amber-500" />
             <span className="text-sm font-medium text-slate-500 tracking-wide">
-              Who We Serve
+              Who we serve
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white max-w-2xl">
-            {"Built for AI Teams Selling to Enterprise".split(" ").map((word, i) => (
+            {"Built for teams carrying an expensive process".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -71,7 +71,7 @@ export function WhoWeServeSection() {
             ))}
           </h2>
           <p className="text-slate-400 text-base leading-relaxed max-w-xl">
-            If your AI agent has live tool access and enterprise buyers are asking how you control it — Wyatt is the answer. Not a policy doc. Actual enforcement.
+            If a process is costing real money in hours or headcount, and nobody can say what automating it would be worth, Plarix is built for that conversation.
           </p>
         </div>
 

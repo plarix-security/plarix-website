@@ -1,26 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AlertTriangle, DatabaseZap, ShieldAlert } from "lucide-react";
+import { AlertTriangle, Calculator, TrendingDown } from "lucide-react";
 
 const problems = [
   {
-    icon: <ShieldAlert className="w-5 h-5 text-amber-500" />,
-    title: "No Enforcement Layer Exists",
+    icon: <Calculator className="w-5 h-5 text-amber-500" />,
+    title: "Nobody scoped the process",
     description:
-      "System prompts ask the model to behave. Output filters catch bad text after the model decides. Observability tools tell you what happened after the agent acted. None of these are enforcement. The action still executes — or already has.",
+      "Teams pick a process because it's visible, not because it's expensive. The processes actually draining budget and headcount are rarely the ones that get automated first.",
   },
   {
     icon: <AlertTriangle className="w-5 h-5 text-amber-500" />,
-    title: "Unpredictability Becomes Operational Risk",
+    title: "Nobody priced it before building",
     description:
-      "LLMs are probabilistic. They always produce unexpected outputs. When those outputs drive agents that take real actions — API calls, file writes, messages, purchases — unpredictability stops being a research problem and becomes a liability.",
+      "A pilot ships, then someone asks what it cost to build and run. By then the number is fixed, and there's no baseline to compare it against.",
   },
   {
-    icon: <DatabaseZap className="w-5 h-5 text-amber-500" />,
-    title: "Enterprise Is Asking How You Control It",
+    icon: <TrendingDown className="w-5 h-5 text-amber-500" />,
+    title: "Nobody can prove the return",
     description:
-      "AI B2B SaaS companies with agents in production are stalling on enterprise deals because they have no infrastructure-level answer to: \"How do you guarantee the agent stays in bounds?\" A policy document is not an answer. Enforcement is.",
+      "Leadership asks what the AI initiative saved. There's an answer for adoption and usage. There's rarely an answer in euros or hours.",
   },
 ];
 
@@ -53,11 +53,11 @@ export function ProblemSection() {
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
             <div className="w-2.5 h-2.5 bg-amber-500" />
             <span className="text-sm font-medium text-slate-500 tracking-wide">
-              The Problem
+              The problem
             </span>
           </div>
           <h2 className="text-balance text-4xl font-normal tracking-tight text-white md:text-5xl lg:text-5xl">
-            {"There is no enforcement layer between what an agent decides and what it executes.".split(" ").map((word, i) => (
+            {"Most AI initiatives don't fail because the model is bad. They fail because nobody did the math first.".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -72,7 +72,7 @@ export function ProblemSection() {
           </h2>
 
           <p className="text-balance text-lg leading-relaxed text-slate-400 md:text-xl max-w-3xl">
-            The agent acts, and you find out afterward. That is the current state of every major agent framework today.
+            A team sees what AI can do and starts building. Nobody has asked what it costs to run, what it replaces, or whether the savings are real. Three questions arrive later that should have come first.
           </p>
         </div>
 

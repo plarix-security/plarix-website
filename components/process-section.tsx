@@ -1,40 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, FileCode, Zap } from "lucide-react";
+import { ClipboardList, Wrench, BarChart3 } from "lucide-react";
 
 const steps = [
   {
-    icon: <Download className="w-5 h-5" />,
-    title: "Install",
-    timeline: "One integration",
+    icon: <ClipboardList className="w-5 h-5" />,
+    title: "Audit",
+    timeline: "One process, one baseline",
     items: [
-      "Wyatt runs alongside your existing agent",
-      "No framework changes required",
-      "No rewrites needed",
-      "One integration point",
+      "We pick one expensive or repetitive process with you",
+      "We measure current cost and hours directly",
+      "You get a written baseline and an estimate",
+      "No commitment required at this stage",
     ],
   },
   {
-    icon: <FileCode className="w-5 h-5" />,
-    title: "Define Policy",
-    timeline: "Simple declarations",
+    icon: <Wrench className="w-5 h-5" />,
+    title: "Build",
+    timeline: "The EEAS, scoped to that process",
     items: [
-      "Declare what each agent is permitted to do",
-      "Specify allowed tools and resources",
-      "Define permitted operations",
-      "Wyatt enforces from the first run",
+      "We design and build the agentic system",
+      "It's scoped to the process we measured, not a general tool",
+      "It runs alongside your existing systems",
+      "We deploy it with your team, not instead of them",
     ],
   },
   {
-    icon: <Zap className="w-5 h-5" />,
-    title: "Run and Forget",
-    timeline: "Always on",
+    icon: <BarChart3 className="w-5 h-5" />,
+    title: "Measure",
+    timeline: "Money and time, reported",
     items: [
-      "Every tool call intercepted automatically",
-      "Every action evaluated against policy",
-      "Every decision logged",
-      "You do not manage Wyatt. Wyatt manages your agents.",
+      "Every result compared against the original baseline",
+      "Euros saved and hours returned, reported on a schedule",
+      "You keep the system either way",
+      "We move to the next process once this one is proven",
     ],
   },
 ];
@@ -65,11 +65,11 @@ export function ProcessSection() {
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
             <div className="w-2.5 h-2.5 bg-amber-500" />
             <span className="text-sm font-medium text-slate-500 tracking-wide">
-              How It Works
+              How it works
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white max-w-xl">
-            {"Get Started in Three Steps".split(" ").map((word, i) => (
+            {"Three steps, start to finish".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -83,7 +83,7 @@ export function ProcessSection() {
             ))}
           </h2>
           <p className="text-slate-400 text-base leading-relaxed max-w-lg">
-            Add AI agent security without touching your existing stack. No rewrites. No framework changes. Wyatt runs alongside your agent — enforce, log, protect.
+            No lengthy transformation program. No new platform for your team to learn. Plarix runs the process, builds around it, and reports the result.
           </p>
         </div>
 

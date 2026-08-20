@@ -5,31 +5,28 @@ import { motion } from "framer-motion";
 
 const RECORDS = [
   {
-    id: "1294",
-    ts: "14:32:01Z",
-    action: "write_file('/etc/cron.d')",
-    agent: "sales-assistant-prod",
-    rule: "fs.write.system",
-    verdict: "DENY" as const,
-    hash: "a3f9c1",
+    id: "baseline",
+    ts: "before",
+    metric: "invoice_matching",
+    detail: "€300,000/yr · 8,000 hrs",
+    verdict: "BASELINE" as const,
+    hash: "measured",
   },
   {
-    id: "1295",
-    ts: "14:32:02Z",
-    action: "execute_sql(SELECT users)",
-    agent: "data-analyst-v2",
-    rule: "db.read.authorized",
-    verdict: "ALLOW" as const,
-    hash: "7b2d84",
+    id: "result",
+    ts: "after",
+    metric: "invoice_matching",
+    detail: "€120,000/yr · 2,500 hrs",
+    verdict: "RESULT" as const,
+    hash: "measured",
   },
   {
-    id: "1296",
-    ts: "14:32:03Z",
-    action: "http_request(exfil.io)",
-    agent: "research-bot",
-    rule: "net.external.unknown",
-    verdict: "DENY" as const,
-    hash: "ec501a",
+    id: "delta",
+    ts: "saved",
+    metric: "money + hours returned",
+    detail: "€180,000 + 5,500 hrs",
+    verdict: "SAVED" as const,
+    hash: "logged",
   },
 ];
 
@@ -70,7 +67,7 @@ export function ReportVisual() {
       {/* Header */}
       <div className="relative flex items-center justify-between px-4 py-2.5 border-b border-slate-800/50 bg-slate-900/40 shrink-0">
         <span className="text-xs text-slate-300 tracking-wide">
-          WYATT AUDIT LOG · CEE FORMAT
+          THE SCORECARD · BASELINE VS RESULT
         </span>
         <div className="flex items-center gap-2">
           <motion.div
@@ -78,16 +75,16 @@ export function ReportVisual() {
             animate={{ opacity: [1, 0.4, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <span className="text-[11px] text-green-400">SOC 2 READY</span>
+          <span className="text-[11px] text-green-400">LIVE</span>
         </div>
       </div>
 
       {/* Stats row */}
       <div className="grid grid-cols-3 border-b border-slate-800/30 shrink-0">
         {[
-          { label: "Denied", target: 2, color: "#ef4444", delay: 300 },
-          { label: "Allowed", target: 1, color: "#22c55e", delay: 550 },
-          { label: "Logged", target: 3, color: "#f59e0b", delay: 800 },
+          { label: "Money saved", target: 180, suffix: "k€", color: "#22c55e", delay: 300 },
+          { label: "Hours returned", target: 5500, suffix: "", color: "#22c55e", delay: 550 },
+          { label: "Baseline", target: 1, suffix: "", color: "#f59e0b", delay: 800 },
         ].map((stat) => (
           <motion.div
             key={stat.label}
@@ -98,6 +95,7 @@ export function ReportVisual() {
           >
             <span className="text-xl font-bold" style={{ color: stat.color }}>
               <Counter target={stat.target} delay={stat.delay} />
+              {stat.suffix}
             </span>
             <span className="text-[10px] text-slate-500 uppercase tracking-wider mt-0.5">
               {stat.label}
@@ -109,8 +107,8 @@ export function ReportVisual() {
       {/* Audit chain */}
       <div className="flex-1 px-4 py-3 flex flex-col overflow-hidden">
         {RECORDS.map((rec, i) => {
-          const isDeny = rec.verdict === "DENY";
-          const dotColor = isDeny ? "#ef4444" : "#22c55e";
+          const isSaved = rec.verdict === "SAVED";
+          const dotColor = isSaved ? "#22c55e" : "#f59e0b";
           return (
             <motion.div
               key={rec.id}
@@ -154,25 +152,25 @@ export function ReportVisual() {
                   <span
                     className="text-[10px] font-bold px-1.5 py-0.5"
                     style={{
-                      color: isDeny ? "#ef4444" : "#22c55e",
-                      backgroundColor: isDeny
-                        ? "rgba(239,68,68,0.12)"
-                        : "rgba(34,197,94,0.12)",
+                      color: isSaved ? "#22c55e" : "#f59e0b",
+                      backgroundColor: isSaved
+                        ? "rgba(34,197,94,0.12)"
+                        : "rgba(245,158,11,0.12)",
                     }}
                   >
                     {rec.verdict}
                   </span>
                 </div>
                 <p className="text-xs text-white/80 truncate mb-0.5">
-                  {rec.action}
+                  {rec.metric}
                 </p>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] text-slate-600 truncate">
-                    {rec.agent}
+                    {rec.detail}
                   </span>
                   <span className="text-[10px] text-slate-700">·</span>
                   <span className="text-[10px] text-slate-700 font-mono">
-                    sha:{rec.hash}
+                    {rec.hash}
                   </span>
                 </div>
               </div>
@@ -184,9 +182,9 @@ export function ReportVisual() {
       {/* Footer */}
       <div className="px-4 py-2.5 border-t border-slate-800/40 bg-slate-900/30 shrink-0 flex items-center justify-between">
         <span className="text-[11px] text-slate-400">
-          Every decision. Tamper-evident.
+          Measured. Not promised.
         </span>
-        <span className="text-[11px] text-amber-500/80">100% logged</span>
+        <span className="text-[11px] text-green-500/80">money · hours</span>
       </div>
     </div>
   );

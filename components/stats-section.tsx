@@ -4,24 +4,24 @@ import { motion } from "framer-motion";
 
 const stats = [
   {
-    value: "Zero",
-    label: "Native Enforcement",
-    context: "No major agent framework ships runtime enforcement. LangChain, CrewAI, AutoGen — zero. System prompts are not enforcement."
+    value: "95%",
+    label: "No measurable return",
+    context: "Of enterprise generative AI pilots show no measurable financial return. MIT, State of AI in Business, 2025."
   },
   {
-    value: "AFB04",
-    label: "Unauthorized Action",
-    context: "The execution-layer failure category. Your agent calls a tool it was not authorized to call. One action. Irreversible damage."
+    value: "88%",
+    label: "Never reach production",
+    context: "Of AI proofs of concept never reach production. IDC, 2025."
   },
   {
-    value: "100%",
-    label: "Tool Call Coverage",
-    context: "Wyatt intercepts every tool call before execution. Not sampled. Not filtered. Every call, every time, evaluated against policy."
+    value: "40%+",
+    label: "Predicted to be cancelled",
+    context: "Of agentic AI projects predicted to be cancelled by 2027 over unclear value. Gartner."
   },
   {
-    value: "CEE",
-    label: "Audit Standard",
-    context: "Canonical Execution Event — structured logs that answer enterprise security questionnaires directly. What did it do, why, under what authority."
+    value: "2",
+    label: "Numbers that matter",
+    context: "The only numbers every Plarix build is measured against: money and hours."
   },
 ];
 
@@ -50,11 +50,11 @@ export function StatsSection() {
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
             <div className="w-2.5 h-2.5 bg-amber-500" />
             <span className="text-sm font-medium text-slate-500 tracking-wide">
-              The Reality
+              The reality
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"The Authorization Gap Is Real".split(" ").map((word, i) => (
+            {"The ROI gap is real".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -96,7 +96,7 @@ export function StatsSection() {
         </motion.div>
 
         <p className="mt-12 text-center text-slate-400 text-base max-w-2xl mx-auto">
-          Your firewall cannot stop unauthorized tool calls. Your WAF cannot detect instruction hijacking. You need Wyatt.
+          A chatbot cannot tell you what it saved. A pilot cannot tell you if it's worth keeping. You need a baseline, a build, and a number.
         </p>
       </div>
     </section>

@@ -1,28 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layers, ShieldOff, FileCode, Lock } from "lucide-react";
+import { Calculator, Crosshair, LineChart, Plug } from "lucide-react";
 
 const blocks = [
   {
-    icon: <Layers className="w-5 h-5 text-amber-500" />,
-    title: "Framework Agnostic",
-    description: "Wyatt works with any agent stack. LangChain, CrewAI, LlamaIndex, MCP, custom agents. One integration. No rewrites. No framework changes.",
+    icon: <Calculator className="w-5 h-5 text-amber-500" />,
+    title: "Economics first",
+    description: "We measure the baseline and model the cost before deciding whether to build anything. If a process doesn't clear the number, we say so instead of building it anyway.",
   },
   {
-    icon: <ShieldOff className="w-5 h-5 text-amber-500" />,
-    title: "Deny by Default Architecture",
-    description: "Nothing executes without explicit policy permission. Not configurable. It is the architecture. The only enforcement product built this way.",
+    icon: <Crosshair className="w-5 h-5 text-amber-500" />,
+    title: "Built around your process, not a generic bot",
+    description: "Every EEAS is scoped to one process we've measured directly, not a general assistant dropped into your company.",
   },
   {
-    icon: <FileCode className="w-5 h-5 text-amber-500" />,
-    title: "Built on the AFB Taxonomy",
-    description: "The only runtime enforcement product built from a first-principles security model of how agents actually fail — not a generic checklist ported from web security.",
+    icon: <LineChart className="w-5 h-5 text-amber-500" />,
+    title: "Measured, not promised",
+    description: "Every engagement ends with a savings record: money and hours, compared against a real baseline, on a schedule. Not an estimate made once and never checked.",
   },
   {
-    icon: <Lock className="w-5 h-5 text-amber-500" />,
-    title: "Virgil Attestation Layer",
-    description: "Every agent action gets a tamper-evident cryptographic record: action taken, policy matched, identity authorized, timestamp. Built for SOC 2, incident response, and enterprise due diligence.",
+    icon: <Plug className="w-5 h-5 text-amber-500" />,
+    title: "No rebuild required",
+    description: "Plarix builds around the systems you already run. No new platform for your team to adopt, no migration project before the first result shows up.",
   },
 ];
 
@@ -56,7 +56,7 @@ export function TrustSection() {
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"Core Guarantees".split(" ").map((word, i) => (
+            {"What makes this different".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -69,10 +69,6 @@ export function TrustSection() {
               </motion.span>
             ))}
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed max-w-xl">
-            Scanners tell you what is wrong. Guardrails filter text. Identity layers manage who can log in.
-            Wyatt manages what the agent can do <em>after</em> it is already running — at the execution layer.
-          </p>
         </div>
 
         {/* Grid */}

@@ -21,8 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://plarix.dev/blog/what-is-an-agent-failure-boundary',
-      lastModified: new Date('2026-04-05'),
+      url: 'https://plarix.dev/blog/what-is-an-economically-engineered-agentic-system',
+      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },

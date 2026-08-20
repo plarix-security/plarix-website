@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { firstName, lastName, company, email, agentStack, repoUrl } = body;
+    const { firstName, lastName, company, email, process } = body;
 
     if (!firstName || !lastName || !company || !email) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -67,13 +67,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
-    const { error } = await supabase.from("wyatt_early_access").insert({
+    const { error } = await supabase.from("process_audit_leads").insert({
       first_name: sanitize(firstName),
       last_name: sanitize(lastName),
       company: sanitize(company),
       email: email.trim().toLowerCase().slice(0, 254),
-      agent_stack: agentStack ? sanitize(agentStack) : null,
-      repo_url: repoUrl ? sanitize(repoUrl).slice(0, 500) : null,
+      process: process ? sanitize(process) : null,
       ip,
     });
 

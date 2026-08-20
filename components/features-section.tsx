@@ -2,7 +2,7 @@
 
 import React from "react"
 import { motion } from "framer-motion";
-import { ShieldAlert, Database, Bot, Github } from "lucide-react";
+import { ClipboardList, TrendingUp, Wrench, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FeatureItem {
@@ -16,31 +16,31 @@ interface FeatureItem {
 const DEFAULT_FEATURES: FeatureItem[] = [
   {
     id: "1",
-    icon: <ShieldAlert className="w-5 h-5 text-white" />,
-    title: "AI Agent Policy Enforcement",
-    description: "Wyatt intercepts every tool call and enforces exactly what each AI agent is authorized to do. Not a suggestion. Actual enforcement — deny by default.",
-    items: ["Intercepts every tool call before execution", "Evaluates against declarative agent policy", "Blocks unauthorized actions deterministically", "Logs every decision as CEE audit record"],
+    icon: <ClipboardList className="w-5 h-5 text-white" />,
+    title: "Process diagnostic",
+    description: "We sit with the team doing the work and measure it: steps, time per step, cost per step, error rate, volume. This becomes the baseline every result gets measured against.",
+    items: ["Time and cost per task, measured directly", "Volume and frequency mapped", "Error and rework rate captured", "A written baseline before any build starts"],
   },
   {
     id: "2",
-    icon: <Database className="w-5 h-5 text-white" />,
-    title: "Context Integrity Protection",
-    description: "Wyatt monitors what enters your agent's context and flags prompt injection and poisoned inputs before they corrupt behavior and drive unauthorized actions.",
-    items: ["Monitors RAG and context window inputs", "Detects prompt injection attempts", "Flags poisoned or manipulated data", "Prevents silent behavior corruption"],
+    icon: <TrendingUp className="w-5 h-5 text-white" />,
+    title: "Economic modeling",
+    description: "Before we write any code, we model what automating the process would cost to build and run, and compare it to the baseline. If the number doesn't work, we say so and stop.",
+    items: ["Build and run cost estimated up front", "Compared against the measured baseline", "Break-even point calculated before build", "No build recommended when the math doesn't hold"],
   },
   {
     id: "3",
-    icon: <Bot className="w-5 h-5 text-white" />,
-    title: "Instruction Integrity",
-    description: "Wyatt validates that model output stays within authorized intent before the agent acts — blocking hijacked instruction sequences before they execute.",
-    items: ["Validates model output against authorized intent", "Blocks instruction hijack sequences", "Prevents agent from acting on injected instructions", "Reduces prompt injection attack surface"],
+    icon: <Wrench className="w-5 h-5 text-white" />,
+    title: "EEAS build",
+    description: "We build the agentic system around the specific process we measured, using the tools and data your company already has. No rebuild of your stack, no new platform to adopt.",
+    items: ["Built around your existing systems", "Scoped to one process, not a general assistant", "Deployed alongside your team, not instead of oversight", "Handles the volume and edge cases we measured"],
   },
   {
     id: "4",
-    icon: <Github className="w-5 h-5 text-white" />,
-    title: "Wyscan — Free AI Agent Security Scanner",
-    description: "A free GitHub App that scans your LangChain, CrewAI, or custom agent codebase on every PR and reports unauthorized action exposures before they reach production.",
-    items: ["Scans on every pull request", "Reports exposures by AFB type", "Supports LangChain, CrewAI, MCP, AutoGen", "Zero cost — always free"],
+    icon: <Search className="w-5 h-5 text-white" />,
+    title: "Free process scan",
+    description: "A short, no-cost session where we estimate the savings on one process before you commit to anything. You get a number. You decide if it's worth building.",
+    items: ["One process, reviewed in under a week", "Estimated savings in euros and hours", "No obligation to continue", "Always free"],
   },
 ];
 
@@ -90,7 +90,7 @@ export function FeaturesSection({ className }: FeaturesSectionProps) {
             </span>
           </div>
           <h2 className="text-balance text-white text-4xl md:text-5xl lg:text-5xl font-normal leading-[1.1] max-w-[700px] tracking-tight">
-            {"How Wyatt Secures Your AI Agents".split(" ").map((word, i) => (
+            {"How Plarix builds an EEAS".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -104,7 +104,7 @@ export function FeaturesSection({ className }: FeaturesSectionProps) {
             ))}
           </h2>
           <p className="text-slate-400 text-base leading-relaxed max-w-xl">
-            AI agent security requires enforcement at every layer — tool call authorization, context integrity, instruction validation, and static exposure detection. Wyatt covers all four.
+            Turning a process into a measurable AI system takes more than a model. It takes a baseline, an economic model, a build, and a report.
           </p>
         </motion.div>
 

@@ -47,11 +47,11 @@ export function Navbar() {
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-8 text-sm text-white/60 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <a
-            href="#solution"
-            onClick={(e) => handleScrollClick(e, "#solution")}
+            href="#approach"
+            onClick={(e) => handleScrollClick(e, "#approach")}
             className="transition-colors hover:text-white whitespace-nowrap"
           >
-            Product
+            Approach
           </a>
           <Link href="/about" className="transition-colors hover:text-white whitespace-nowrap">
             About
@@ -64,13 +64,13 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* Right side: Get Early Access + mobile toggle */}
+        {/* Right side: Get a Free Process Audit + mobile toggle */}
         <div className="ml-auto flex items-center gap-4">
           <button
             onClick={openForm}
             className="hidden text-sm font-medium text-white transition-colors hover:text-white/80 lg:block"
           >
-            Get Early Access
+            Get a Free Process Audit
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -91,11 +91,11 @@ export function Navbar() {
         <div className="bg-slate-950/95 backdrop-blur-sm border-t border-slate-800/50 lg:hidden">
           <div className="flex flex-col px-6 py-6 gap-4">
             <a
-              href="#solution"
-              onClick={(e) => handleScrollClick(e, "#solution")}
+              href="#approach"
+              onClick={(e) => handleScrollClick(e, "#approach")}
               className="text-white/60 transition-colors hover:text-white py-2"
             >
-              Product
+              Approach
             </a>
             <Link
               href="/about"
@@ -122,7 +122,7 @@ export function Navbar() {
               onClick={openForm}
               className="mt-2 text-white font-medium py-2 border-t border-slate-800/50 text-left"
             >
-              Get Early Access
+              Get a Free Process Audit
             </button>
           </div>
         </div>
@@ -144,8 +144,16 @@ export function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-10 flex h-full flex-col justify-center items-center px-6 pt-14 text-center">
+        {/* Eyebrow */}
+        <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 mb-8">
+          <div className="w-2.5 h-2.5 bg-amber-500" />
+          <span className="text-sm font-medium text-slate-500 tracking-wide">
+            Economically-Engineered AI Systems
+          </span>
+        </div>
+
         <h1 className="max-w-4xl text-balance text-5xl font-normal tracking-tight text-white md:text-6xl lg:text-7xl">
-          {"The LLM stays probabilistic. The behavior becomes controllable.".split(" ").map((word, i) => (
+          {"AI can automate almost anything. We only build what pays for itself.".split(" ").map((word, i) => (
             <motion.span
               key={`hero-word-${word}-${i}`}
               initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -160,8 +168,7 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-balance text-center text-sm leading-relaxed text-white/50 md:text-base">
-          Plarix is the enforcement infrastructure that makes AI agent behavior controllable at the execution layer.
-          Wyatt intercepts every tool call before it runs. Policy-based. Deny by default. Always on.
+          Plarix maps how a process runs today, in cost and hours, then builds an Economically-Engineered Agentic System around it. Before and after, we measure two numbers: money saved and hours returned.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
@@ -170,14 +177,14 @@ export function Hero() {
             className="bg-amber-500 px-6 text-slate-950 hover:bg-amber-400 font-medium"
             onClick={() => window.dispatchEvent(new CustomEvent("open-consultation"))}
           >
-            Get Early Access
+            Get a Free Process Audit
           </Button>
           <Button
             variant="outline"
             size="lg"
             className="border-white/15 bg-transparent px-6 text-white hover:bg-white/5 hover:text-white"
             onClick={() => {
-              const el = document.querySelector("#solution")
+              const el = document.querySelector("#approach")
               if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
             }}
           >
@@ -186,7 +193,7 @@ export function Hero() {
         </div>
 
         <p className="mt-12 text-xs text-white/30 tracking-wide uppercase">
-          Runtime Enforcement for AI Agents
+          Money saved. Time returned.
         </p>
       </div>
     </section>

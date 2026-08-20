@@ -1,26 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileBarChart, Bell, FileText } from "lucide-react";
+import { FileBarChart, Workflow, LineChart } from "lucide-react";
 
 const deliverables = [
   {
     icon: <FileBarChart className="w-6 h-6 text-amber-500" />,
-    title: "Complete Audit Logs",
-    description: "Every agent decision, timestamped and structured. Full visibility into what your agents are doing.",
-    items: ["Every tool call logged", "Timestamped decision records", "Structured for analysis", "Exportable audit trails"],
+    title: "Baseline report",
+    description: "A clear picture of what the process cost before we touched it: hours, euros, volume, and where the time actually went.",
+    items: ["Time and cost per task", "Volume and frequency", "Where delays and rework happen", "The number every result gets measured against"],
   },
   {
-    icon: <Bell className="w-6 h-6 text-amber-500" />,
-    title: "Real-Time Alerts",
-    description: "Know immediately when policy violations occur. No surprises.",
-    items: ["Instant violation notifications", "Configurable alert thresholds", "Integration with your stack", "Clear violation context"],
+    icon: <Workflow className="w-6 h-6 text-amber-500" />,
+    title: "A working system",
+    description: "The EEAS itself, integrated into how your team already works, not a demo and not a slide deck.",
+    items: ["Deployed into your existing tools", "Built for the exact process we measured", "Owned by your team once it's live", "No dependency on Plarix to keep running"],
   },
   {
-    icon: <FileText className="w-6 h-6 text-amber-500" />,
-    title: "AFB Exposure Reports",
-    description: "Automated reports classifying your exposure by Agent Failure Boundary type.",
-    items: ["Generated automatically", "Classified by AFB type", "Prioritized remediation steps", "Track improvement over time"],
+    icon: <LineChart className="w-6 h-6 text-amber-500" />,
+    title: "The savings record",
+    description: "A running comparison of the baseline against actual results: what changed, in money and hours, updated on a set schedule.",
+    items: ["Money saved, tracked against baseline", "Hours returned, tracked against baseline", "Reported on a schedule you set", "Built to hold up in a budget review"],
   },
 ];
 
@@ -50,11 +50,11 @@ export function DeliverablesSection() {
           <div className="flex items-center gap-3 px-4 py-2 border border-slate-800/50 w-fit">
             <div className="w-2.5 h-2.5 bg-amber-500" />
             <span className="text-sm font-medium text-slate-500 tracking-wide">
-              What You Get
+              What you get
             </span>
           </div>
           <h2 className="text-balance text-4xl md:text-5xl font-normal tracking-tight text-white">
-            {"AI Agent Security Outputs That Matter".split(" ").map((word, i) => (
+            {"Proof, not a pitch".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -69,7 +69,7 @@ export function DeliverablesSection() {
           </h2>
 
           <p className="text-slate-400 text-base leading-relaxed max-w-xl">
-            Enforcement is the core. But enterprise AI compliance requires proof — structured audit trails, real-time violation alerts, and AFB exposure reports that answer security reviews directly.
+            Building the system is half the job. Proving what it changed is the other half. Every engagement ends with a baseline report, a working system, and a savings record.
           </p>
         </div>
 
